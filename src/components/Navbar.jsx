@@ -31,30 +31,30 @@ const Navbar = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'py-3 bg-bg/85 backdrop-blur-xl border-b border-border shadow-lg shadow-black/5'
-            : 'py-5 bg-gradient-to-b from-bg/80 via-bg/40 to-transparent border-b border-transparent'
+            ? 'py-3.5 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 shadow-xl shadow-black/20'
+            : 'py-5 bg-gradient-to-b from-slate-950/95 via-slate-950/60 to-transparent border-b border-transparent'
         }`}
       >
         <div className="container-main flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Logo Nitido com Alto Contraste */}
           <a href="#" className="flex flex-col group" aria-label="Voltar ao topo">
-            <span className="text-xl font-display font-bold tracking-wider text-text-primary leading-none group-hover:text-accent transition-colors duration-300">
+            <span className="text-xl font-display font-extrabold tracking-wider text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] group-hover:text-sky-400 transition-colors duration-300">
               ROBERTO KOSIUR
             </span>
-            <span className="text-[10px] font-bold text-text-secondary tracking-[0.25em] mt-1 uppercase">
+            <span className="text-[10px] font-bold text-sky-400 tracking-[0.25em] mt-0.5 uppercase drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
               Engenharia Civil
             </span>
           </a>
 
           {/* Desktop Navigation & Theme Switcher */}
-          <nav className="hidden md:flex items-center gap-6" aria-label="Navegação principal">
+          <nav className="hidden md:flex items-center gap-7" aria-label="Navegação principal">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="relative text-text-secondary hover:text-text-primary text-sm font-medium transition-colors duration-300
-                           after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-accent 
+                className="relative text-slate-200 hover:text-white text-sm font-semibold tracking-wide drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] transition-colors duration-300
+                           after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-sky-400 
                            after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.name}
@@ -66,7 +66,7 @@ const Navbar = () => {
 
             <a
               href="#contato"
-              className="btn-primary !px-6 !py-2.5 text-sm"
+              className="btn-primary !px-6 !py-2.5 text-sm shadow-lg hover:shadow-sky-500/30"
             >
               Falar com o Engenheiro
             </a>

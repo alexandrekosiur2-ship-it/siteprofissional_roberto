@@ -14,10 +14,10 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 bg-slate-950"
       aria-label="Seção principal"
     >
-      {/* Background de Vídeo com Nítida Visibilidade */}
+      {/* Background de Vídeo com Overlay Gradiente de Alto Contraste */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
@@ -28,7 +28,7 @@ const Hero = () => {
           poster={heroPoster}
           disablePictureInPicture
           disableRemotePlayback
-          className="w-full h-full object-cover filter brightness-[0.9] contrast-[1.05] transform-gpu"
+          className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.1] transform-gpu"
         >
           <source src={heroVideo} type="video/mp4" />
           <img
@@ -38,113 +38,109 @@ const Hero = () => {
           />
         </video>
 
-        {/* Gradientes Dinâmicos de Fundo (Ajustados para proteger leitura mantendo o vídeo bem nítido) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/40 to-bg/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bg/50 via-transparent to-bg/30" />
+        {/* Gradientes de Proteção Visual para Legibilidade Impecável (WCAG AAA) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-slate-950/20 to-slate-950/15 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-transparent to-slate-950/70 pointer-events-none" />
       </div>
 
-      {/* Halo de acento traseiro */}
-      <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-        <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] max-w-[950px] h-[550px] bg-accent/10 rounded-full blur-[140px]" />
-      </div>
-
-      {/* Conteúdo principal dentro de Placa Glassmorphic de Alta Performance */}
+      {/* Conteúdo Principal (ZERO Blocos, ZERO Quadrados - Tipografia Pura e Cristalina) */}
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 container-main text-center"
+        className="relative z-10 container-main text-center max-w-[960px] mx-auto space-y-6"
       >
-        <div className="max-w-[1000px] mx-auto p-6 sm:p-12 md:p-16 rounded-3xl bg-surface/85 backdrop-blur-2xl border border-border shadow-2xl relative overflow-hidden transition-all duration-400">
-          
-          {/* Marcação de Cota CAD no Canto do Card de Vidro */}
-          <div className="absolute top-3 left-4 text-[9px] font-mono text-text-muted tracking-widest pointer-events-none">
-            + CAD // HERO_FRAME_PRO
-          </div>
-          <div className="absolute top-3 right-4 text-[9px] font-mono text-text-muted tracking-widest pointer-events-none">
-            WCAG AAA APPROVED +
-          </div>
-
-          {/* Badge de credibilidade */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="badge-glow mb-6 inline-flex"
-          >
-            <Home className="w-4 h-4 text-accent" />
+        {/* 1. Badge de Credibilidade (Pill Fina Minimalista) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="inline-block"
+        >
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/60 border border-slate-700/50 backdrop-blur-md text-xs sm:text-sm font-semibold tracking-wide text-slate-200 shadow-sm">
+            <Home className="w-4 h-4 text-sky-400" />
             <span>Engenharia & Gestão de Empreendimentos Residenciais</span>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Headline magnética */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: 'easeOut' }}
-            className="text-hero font-display font-extrabold text-text-primary mb-6 leading-[1.08] max-w-[900px] mx-auto drop-shadow-sm"
-          >
+        {/* 2. Headline Magnética (SEM QUADRADOS / SEM CAIXAS DE FUNDO) */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.15, ease: 'easeOut' }}
+          className="text-hero font-display font-extrabold mb-4 leading-[1.15] max-w-[920px] mx-auto text-center tracking-tight"
+        >
+          <span className="text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
             Engenharia de precisão para{' '}
-            <br className="hidden sm:block" />
-            <span className="text-gradient">empreendimentos residenciais de alto padrão.</span>
-          </motion.h1>
+          </span>
+          <span className="text-sky-400 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] block sm:inline mt-1 sm:mt-0">
+            empreendimentos residenciais de alto padrão.
+          </span>
+        </motion.h1>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
-            className="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mb-10 font-medium leading-relaxed"
-          >
+        {/* 3. Subheadline (Texto Limpo Sem Qualquer Caixa) */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
+          className="max-w-2xl mx-auto pt-2"
+        >
+          <p className="text-slate-200 text-base sm:text-lg font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
             Gestão executiva de obras prediais e residenciais de médio e grande porte. A união entre rigor técnico, cumprimento de prazos e sofisticação construtiva.
-          </motion.p>
+          </p>
+        </motion.div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.45, ease: 'easeOut' }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        {/* 4. CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.45, ease: 'easeOut' }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+        >
+          <a href="#portfolio" className="btn-primary group w-full sm:w-auto shadow-xl">
+            Ver Empreendimentos Residenciais
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </a>
+          <a
+            href="#contato"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-white font-medium shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto"
           >
-            <a href="#portfolio" className="btn-primary group w-full sm:w-auto">
-              Ver Empreendimentos Residenciais
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-            <a href="#contato" className="btn-ghost w-full sm:w-auto">
-              <Shield className="w-4 h-4 text-accent" />
-              Falar com o Engenheiro
-            </a>
-          </motion.div>
+            <Shield className="w-4 h-4 text-sky-400" />
+            Falar com o Engenheiro
+          </a>
+        </motion.div>
 
-          {/* Badges de impacto rápido */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-6 mt-10 pt-8 border-t border-border/60 text-text-primary font-medium text-xs sm:text-sm"
-          >
-            {['Edificações Residenciais', 'Gestão de Contratos', 'Compatibilização de Projetos', '+20 Anos de Mercado'].map((item, i) => (
-              <span key={i} className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                {item}
-              </span>
-            ))}
-          </motion.div>
-
-        </div>
+        {/* 5. Badges Rápidos (Pills Finas Individuais) */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.7 }}
+          className="flex flex-wrap items-center justify-center gap-3 pt-6 text-xs sm:text-sm font-medium"
+        >
+          {['Edificações Residenciais', 'Gestão de Contratos', 'Compatibilização de Projetos', '+20 Anos de Mercado'].map((item, i) => (
+            <span
+              key={i}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 shadow-sm backdrop-blur-sm"
+            >
+              <span className="w-2 h-2 rounded-full bg-sky-400" />
+              {item}
+            </span>
+          ))}
+        </motion.div>
       </motion.div>
 
-      {/* Indicador de scroll */}
+      {/* Indicador de Scroll */}
       <motion.div
         style={{ opacity: contentOpacity }}
         className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10"
       >
-        <span className="text-text-muted text-[10px] font-bold tracking-widest uppercase">
+        <span className="text-slate-400 text-[10px] font-bold tracking-widest uppercase drop-shadow">
           Explorar
         </span>
         <motion.div
           animate={{ y: [0, 5, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="w-8 h-8 rounded-full glass-dark flex items-center justify-center border border-border shadow-sm"
+          className="w-8 h-8 rounded-full bg-slate-900/90 backdrop-blur-md flex items-center justify-center border border-slate-700 shadow-sm text-slate-200"
         >
-          <ChevronDown className="text-text-primary w-4 h-4" />
+          <ChevronDown className="w-4 h-4" />
         </motion.div>
       </motion.div>
     </section>
@@ -152,3 +148,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
