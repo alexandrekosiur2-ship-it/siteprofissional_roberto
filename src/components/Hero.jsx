@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, ArrowRight, Home, Shield } from 'lucide-react';
 import heroVideo from '../assets/hero_construction_light.mp4';
+import heroVideoWebm from '../assets/hero_construction.webm';
 import heroPoster from '../assets/hero_residential_luxury.png';
 
 const Hero = () => {
@@ -31,6 +32,7 @@ const Hero = () => {
           className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.1] transform-gpu"
         >
           <source src={heroVideo} type="video/mp4" />
+          <source src={heroVideoWebm} type="video/webm" />
           <img
             src={heroPoster}
             alt="Empreendimentos residenciais de alto padrão"
