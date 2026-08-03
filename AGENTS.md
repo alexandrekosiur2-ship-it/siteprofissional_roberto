@@ -75,9 +75,9 @@ Toda e qualquer alteração de código ou funcionalidade DEVE seguir este ciclo 
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────┐
-│ 4. CORREÇÃO & LOG (CHANGELOG.md)                        │
-│    Se nota < 8.0 → Refatorar. Se 3+ arquivos → Log     │
-└──────────────────────────┬──────────────────────────────┘
+│ 4. CORREÇÃO, LOG & GIT (CHANGELOG.md & Prompt Git)      │
+│    Se nota < 8.0 → Refatorar. Log 3+ arqs. Perguntar Git│
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -92,6 +92,7 @@ Toda e qualquer alteração de código ou funcionalidade DEVE seguir este ciclo 
 6. **Consulta de Skills Externas On-Demand & Auditoria Prévia**: A IA prioriza 100% as Skills Locais em `docs/agentes/`. Quando o usuário solicitar uma pesquisa ou uso de skill externa do repositório `agentic-awesome-skills`, a IA executará a consulta em tempo real sem instalar nada no computador, utilizando o comando:
    `npx agentic-awesome-skills --antigravity --skills <NOME_DA_SKILL> --dry-run`
    *⚠️ REGRA DE APROVAÇÃO:* Antes de aplicar qualquer regra da skill externa, a IA deve emitir o **Laudo de Avaliação de Skill Externa** (score 0-10 na `SKILL_AUDITOR_QUALIDADE.md`), autorizando a aplicação somente se a média for **≥ 8.0/10**.
+7. **Proposta Proativa de Git Commit & Push**: Ao concluir um assunto/tarefa ou sempre que houver alteração em 3 ou mais arquivos, a IA **DEVE** perguntar proativamente ao usuário: *"Deseja realizar o commit e push para o Git agora com a mensagem: '[mensagem]'?"*
 
 ---
-*Status do Projeto: Ativo e Isolado em SITEPROFISSSIONA_ROBERTO | 3 Skills Online | v3.2 — Atualizado em 03/08/2026*
+*Status do Projeto: Ativo e Isolado em SITEPROFISSSIONA_ROBERTO | 3 Skills Online | v3.3 — Atualizado em 03/08/2026*
