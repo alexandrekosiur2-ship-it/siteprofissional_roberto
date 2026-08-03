@@ -9,8 +9,6 @@ import imgPort from '../assets/portfolio_port.png';
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  
-  // Estado para controlar a posição do cursor customizado (Capacete de Obra / Prancheta)
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [hoveredProject, setHoveredProject] = useState(null);
 
@@ -31,7 +29,7 @@ const Portfolio = () => {
       role: "Gerente de Obras & Produção",
       image: imgResidential,
       span: "md:col-span-2",
-      iconType: "hardhat", // Capacete
+      iconType: "hardhat",
       details: "Gestão executiva completa na construção e entrega de grandes empreendimentos residenciais. Atuação no planejamento de campo, compatibilização de projetos de arquitetura e instalações, acompanhamento da produção, controle de materiais e relacionamento com incorporadores e fornecedores."
     },
     {
@@ -42,7 +40,7 @@ const Portfolio = () => {
       role: "Gerente de Contratos",
       image: imgBridge,
       span: "md:col-span-1",
-      iconType: "clipboard", // Prancheta
+      iconType: "clipboard",
       details: "Gestão de Obras de Arte Especiais (OAE) para o setor rodoviário com supervisão técnica, gestão de contratos e alto controle de qualidade."
     },
     {
@@ -70,7 +68,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-section bg-white relative overflow-hidden">
+    <section id="portfolio" className="py-section bg-bg relative overflow-hidden transition-colors duration-400">
       <div className="container-main">
         
         {/* Cabeçalho */}
@@ -109,7 +107,7 @@ const Portfolio = () => {
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               onClick={() => setSelectedProject(project)}
-              className={`group relative h-[420px] rounded-3xl overflow-hidden cursor-none bg-white border border-black/10 hover:border-accent/40 shadow-sm hover:shadow-card transition-all duration-500 ${project.span}`}
+              className={`group relative h-[420px] rounded-3xl overflow-hidden cursor-none bg-surface border border-border hover:border-accent/40 shadow-sm hover:shadow-card transition-all duration-500 ${project.span}`}
             >
               {/* Imagem de Fundo com zoom no hover */}
               <img
@@ -118,10 +116,10 @@ const Portfolio = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter contrast-[1.05]"
               />
               
-              {/* Overlay Claro (Gradient) concentrado apenas na parte inferior para o texto */}
-              <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-white via-white/40 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Overlay de gradiente dinâmico para garantir legibilidade dos textos em qualquer tema */}
+              <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-bg via-bg/70 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* CURSOR CUSTOMIZADO DE OBRA (Capacete de Obra ou Prancheta que segue o mouse) */}
+              {/* CURSOR CUSTOMIZADO DE OBRA */}
               <AnimatePresence>
                 {hoveredProject === project.id && (
                   <motion.div
@@ -133,7 +131,7 @@ const Portfolio = () => {
                       left: `${cursorPos.x}px`,
                       top: `${cursorPos.y}px`,
                     }}
-                    className="absolute z-30 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full bg-accent text-white font-medium text-xs shadow-[0_0_25px_rgba(59,130,246,0.6)] border border-white/20 backdrop-blur-md"
+                    className="absolute z-30 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full bg-accent text-white font-medium text-xs shadow-glow border border-white/20 backdrop-blur-md"
                   >
                     {project.iconType === 'hardhat' ? (
                       <HardHat className="w-4 h-4 text-white animate-bounce" />
@@ -151,7 +149,7 @@ const Portfolio = () => {
                   <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/20 text-accent border border-accent/30 backdrop-blur-md">
                     {project.category}
                   </span>
-                  <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-black/10 flex items-center justify-center text-accent opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-full glass-dark border border-border flex items-center justify-center text-accent opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -179,11 +177,11 @@ const Portfolio = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl bg-bg-alt border border-black/10 rounded-3xl p-8 shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl bg-surface border border-border rounded-3xl p-8 shadow-2xl overflow-hidden"
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white border border-black/10 text-text-muted hover:text-accent shadow-sm transition-colors"
+                className="absolute top-6 right-6 p-2 rounded-full bg-bg-alt border border-border text-text-muted hover:text-accent shadow-sm transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -202,7 +200,7 @@ const Portfolio = () => {
                 {selectedProject.title}
               </h3>
 
-              <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-xl bg-white border border-black/5 shadow-sm text-sm">
+              <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-xl bg-bg-alt border border-border shadow-sm text-sm">
                 <div>
                   <span className="text-text-muted block text-xs">Atuação</span>
                   <strong className="text-text-primary font-medium">{selectedProject.role}</strong>

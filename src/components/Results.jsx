@@ -37,9 +37,9 @@ const Results = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-200 relative overflow-hidden border-y border-black/[0.05]">
+    <section className="py-20 bg-bg-alt relative overflow-hidden border-y border-border transition-colors duration-400">
       {/* Glow de fundo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-accent/[0.02] blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-accent/5 blur-3xl pointer-events-none" />
 
       <div className="container-main relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
@@ -50,7 +50,7 @@ const Results = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col items-center justify-center text-center p-6 rounded-2xl bg-white border border-black/[0.05] shadow-sm"
+              className="flex flex-col items-center justify-center text-center p-6 rounded-2xl bg-surface border border-border shadow-sm hover:border-accent/40 transition-all duration-300"
             >
               <div className="text-4xl md:text-5xl font-display font-extrabold text-text-primary mb-2 flex items-center">
                 <AnimatedCounter target={stat.value} />

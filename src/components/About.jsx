@@ -14,21 +14,16 @@ const SetSquareIcon = ({ className }) => (
     strokeLinejoin="round"
     className={className}
   >
-    {/* Triângulo externo do esquadro */}
     <path d="M4 20L20 20L4 4Z" />
-    {/* Recorte interno do esquadro */}
     <path d="M7 17L14 17L7 10Z" />
-    {/* Marcações de milímetros no cateto vertical */}
     <line x1="4" y1="14" x2="6" y2="14" />
     <line x1="4" y1="10" x2="6" y2="10" />
-    {/* Marcações de milímetros no cateto horizontal */}
     <line x1="10" y1="20" x2="10" y2="18" />
     <line x1="14" y1="20" x2="14" y2="18" />
   </svg>
 );
 
 const About = () => {
-  // Estado para efeito 3D Tilt suave na foto do Roberto
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
@@ -56,9 +51,9 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="py-section bg-white relative overflow-hidden">
+    <section id="sobre" className="py-section bg-bg-alt relative overflow-hidden transition-colors duration-400">
       {/* Glow decorativo de fundo */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/[0.04] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container-main relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -71,40 +66,38 @@ const About = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-5 relative perspective-1000"
           >
-            {/* ÍCONES PURAMENTE DE DESENHO TÉCNICO & ARQUITETURA */}
-            
-            {/* 1. ESQUADRO TÉCNICO DE ARQUITETURA 📐 (Canto Inferior Esquerdo) */}
+            {/* 1. ESQUADRO TÉCNICO DE ARQUITETURA 📐 */}
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute -bottom-5 -left-5 z-30 w-12 h-12 rounded-2xl bg-white border border-black/10 text-amber-500 shadow-lg flex items-center justify-center pointer-events-none hidden sm:flex"
+              className="absolute -bottom-5 -left-5 z-30 w-12 h-12 rounded-2xl bg-surface border border-border text-accent shadow-lg flex items-center justify-center pointer-events-none hidden sm:flex"
             >
               <SetSquareIcon className="w-6 h-6 animate-pulse" />
             </motion.div>
 
-            {/* 2. LÁPIS DE DESENHO TÉCNICO ✏️ (Canto Superior Direito) */}
+            {/* 2. LÁPIS DE DESENHO TÉCNICO ✏️ */}
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 z-30 w-11 h-11 rounded-2xl bg-white border border-black/10 text-accent shadow-lg flex items-center justify-center pointer-events-none hidden sm:flex"
+              className="absolute -top-4 -right-4 z-30 w-11 h-11 rounded-2xl bg-surface border border-border text-accent shadow-lg flex items-center justify-center pointer-events-none hidden sm:flex"
             >
               <Pencil className="w-5 h-5" />
             </motion.div>
 
-            {/* 3. COMPASSO DE PROJETO 🧭 (Canto Superior Esquerdo) */}
+            {/* 3. COMPASSO DE PROJETO 🧭 */}
             <motion.div
               animate={{ rotate: [-3, 3, -3] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="absolute top-8 -left-5 z-30 w-10 h-10 rounded-xl bg-white border border-black/10 text-text-secondary shadow-md flex items-center justify-center pointer-events-none hidden sm:flex"
+              className="absolute top-8 -left-5 z-30 w-10 h-10 rounded-xl bg-surface border border-border text-text-secondary shadow-md flex items-center justify-center pointer-events-none hidden sm:flex"
             >
               <Compass className="w-4 h-4" />
             </motion.div>
 
-            {/* 4. Cota de Desenho Técnico CAD no Topo */}
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 text-[9px] font-mono text-accent/50 tracking-widest pointer-events-none hidden sm:flex">
-              <span className="w-6 h-[1px] bg-accent/30" />
+            {/* 4. Cota de Desenho Técnico CAD */}
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 text-[9px] font-mono text-accent/60 tracking-widest pointer-events-none hidden sm:flex">
+              <span className="w-6 h-[1px] bg-accent/40" />
               <span>├─ ANÁLISE DE PLANTA ─┤</span>
-              <span className="w-6 h-[1px] bg-accent/30" />
+              <span className="w-6 h-[1px] bg-accent/40" />
             </div>
 
             {/* CARD DA FOTO PRINCIPAL COM INTERAÇÃO TILT */}
@@ -115,17 +108,17 @@ const About = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="relative mx-auto max-w-md lg:max-w-none cursor-pointer group"
             >
-              {/* Esquadros e Linhas Guia de Projeto CAD puro nas 4 pontas */}
-              <div className="absolute top-2 left-2 text-[9px] font-mono text-black/20 group-hover:text-accent/60 transition-colors pointer-events-none z-20">
+              {/* Esquadros e Linhas Guia CAD */}
+              <div className="absolute top-2 left-2 text-[9px] font-mono text-text-muted group-hover:text-accent transition-colors pointer-events-none z-20">
                 + ───
               </div>
-              <div className="absolute top-2 right-2 text-[9px] font-mono text-black/20 group-hover:text-accent/60 transition-colors pointer-events-none z-20">
+              <div className="absolute top-2 right-2 text-[9px] font-mono text-text-muted group-hover:text-accent transition-colors pointer-events-none z-20">
                 ─── +
               </div>
-              <div className="absolute bottom-2 left-2 text-[9px] font-mono text-black/20 group-hover:text-accent/60 transition-colors pointer-events-none z-20">
+              <div className="absolute bottom-2 left-2 text-[9px] font-mono text-text-muted group-hover:text-accent transition-colors pointer-events-none z-20">
                 + ───
               </div>
-              <div className="absolute bottom-2 right-2 text-[9px] font-mono text-black/20 group-hover:text-accent/60 transition-colors pointer-events-none z-20">
+              <div className="absolute bottom-2 right-2 text-[9px] font-mono text-text-muted group-hover:text-accent transition-colors pointer-events-none z-20">
                 ─── +
               </div>
 
@@ -141,13 +134,13 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-80" />
                 
                 {/* Legenda sobre a foto */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/80 border border-black/10 backdrop-blur-md shadow-sm z-10">
+                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-surface/90 border border-border backdrop-blur-md shadow-sm z-10">
                   <div className="flex items-center justify-between text-text-primary">
                     <div>
                       <h4 className="font-display font-bold text-lg">Roberto Kosiur</h4>
                       <p className="text-xs text-text-secondary">Engenheiro Civil · CREA/SP</p>
                     </div>
-                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-accent/20 text-accent border border-accent/30">
+                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-accent/15 text-accent border border-accent/30">
                       +20 Anos
                     </span>
                   </div>
@@ -188,8 +181,8 @@ const About = () => {
             {/* Grid de Diferenciais */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {highlights.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-black/10 shadow-sm hover:border-accent/40 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
+                <div key={idx} className="flex items-center gap-3 p-3.5 rounded-xl bg-surface border border-border shadow-sm hover:border-accent/40 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center text-accent flex-shrink-0">
                     <item.icon className="w-4 h-4" />
                   </div>
                   <span className="text-text-primary font-medium text-sm">{item.label}</span>
@@ -198,7 +191,7 @@ const About = () => {
             </div>
 
             {/* Destaque Institucional ABEMI */}
-            <div className="p-5 rounded-2xl bg-white border border-accent/20 shadow-sm">
+            <div className="p-5 rounded-2xl bg-surface border border-accent/25 shadow-sm">
               <h4 className="text-sm font-bold text-text-primary mb-1 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent" />
                 Contribuição Técnica & Qualidade

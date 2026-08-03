@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,8 +31,8 @@ const Navbar = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'py-3 bg-bg/80 backdrop-blur-xl border-b border-black/[0.06] shadow-lg shadow-black/10'
-            : 'py-5 bg-gradient-to-b from-white/70 to-transparent border-b border-transparent'
+            ? 'py-3 bg-bg/85 backdrop-blur-xl border-b border-border shadow-lg shadow-black/5'
+            : 'py-5 bg-gradient-to-b from-bg/80 via-bg/40 to-transparent border-b border-transparent'
         }`}
       >
         <div className="container-main flex items-center justify-between">
@@ -46,8 +47,8 @@ const Navbar = () => {
             </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Navegação principal">
+          {/* Desktop Navigation & Theme Switcher */}
+          <nav className="hidden md:flex items-center gap-6" aria-label="Navegação principal">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -59,6 +60,10 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+
+            {/* Componente Seletor de Tema & Paletas */}
+            <ThemeSwitcher />
+
             <a
               href="#contato"
               className="btn-primary !px-6 !py-2.5 text-sm"
@@ -67,15 +72,19 @@ const Navbar = () => {
             </a>
           </nav>
 
-          {/* Mobile Toggle */}
-          <button
-            className="md:hidden text-text-primary p-2 hover:text-accent transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Right Bar (Theme Switcher + Toggle Menu) */}
+          <div className="flex items-center gap-3 md:hidden">
+            <ThemeSwitcher />
+
+            <button
+              className="text-text-primary p-2 hover:text-accent transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </header>
 

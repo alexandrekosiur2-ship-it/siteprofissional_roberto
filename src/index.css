@@ -2,28 +2,210 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   DESIGN SYSTEM - 10 PALETAS DINÂMICAS DE CORES (5 CLARAS + 5 ESCURAS)
+   ========================================================================== */
+
+:root, [data-theme="light-clean"] {
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F1F5F9;
+  --color-border: rgba(15, 23, 42, 0.08);
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  --color-accent: #1E40AF;
+  --color-accent-hover: #1E3A8A;
+  --color-accent-glow: rgba(30, 64, 175, 0.2);
+  --color-card-bg: rgba(255, 255, 255, 0.95);
+  --color-glass-bg: rgba(255, 255, 255, 0.85);
+  --color-glass-border: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light-steel"] {
+  --color-bg: #F1F5F9;
+  --color-bg-alt: #E2E8F0;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F8FAFC;
+  --color-border: rgba(30, 41, 59, 0.12);
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748B;
+  --color-accent: #EA580C;
+  --color-accent-hover: #C2410C;
+  --color-accent-glow: rgba(234, 88, 12, 0.25);
+  --color-card-bg: rgba(255, 255, 255, 0.95);
+  --color-glass-bg: rgba(255, 255, 255, 0.85);
+  --color-glass-border: rgba(30, 41, 59, 0.1);
+}
+
+[data-theme="light-navy"] {
+  --color-bg: #F8FAFC;
+  --color-bg-alt: #F1F5F9;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #E2E8F0;
+  --color-border: rgba(12, 35, 64, 0.1);
+  --color-text-primary: #0C2340;
+  --color-text-secondary: #1E3A8A;
+  --color-text-muted: #64748B;
+  --color-accent: #0284C7;
+  --color-accent-hover: #0369A1;
+  --color-accent-glow: rgba(2, 132, 199, 0.25);
+  --color-card-bg: rgba(255, 255, 255, 0.95);
+  --color-glass-bg: rgba(255, 255, 255, 0.85);
+  --color-glass-border: rgba(12, 35, 64, 0.08);
+}
+
+[data-theme="light-bronze"] {
+  --color-bg: #FAF8F5;
+  --color-bg-alt: #F5F0EB;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #EDE8E0;
+  --color-border: rgba(120, 90, 60, 0.12);
+  --color-text-primary: #2C1810;
+  --color-text-secondary: #5C4033;
+  --color-text-muted: #8C6D58;
+  --color-accent: #B45309;
+  --color-accent-hover: #92400E;
+  --color-accent-glow: rgba(180, 83, 9, 0.22);
+  --color-card-bg: rgba(255, 255, 255, 0.95);
+  --color-glass-bg: rgba(250, 248, 245, 0.85);
+  --color-glass-border: rgba(120, 90, 60, 0.1);
+}
+
+[data-theme="light-emerald"] {
+  --color-bg: #F4F7F5;
+  --color-bg-alt: #E8EFEA;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #DDE7E1;
+  --color-border: rgba(6, 78, 59, 0.1);
+  --color-text-primary: #064E3B;
+  --color-text-secondary: #134E4A;
+  --color-text-muted: #4B7B70;
+  --color-accent: #059669;
+  --color-accent-hover: #047857;
+  --color-accent-glow: rgba(5, 150, 105, 0.22);
+  --color-card-bg: rgba(255, 255, 255, 0.95);
+  --color-glass-bg: rgba(244, 247, 245, 0.85);
+  --color-glass-border: rgba(6, 78, 59, 0.08);
+}
+
+/* --- PALETAS ESCURAS (DARK MODE) --- */
+
+[data-theme="dark-premium"] {
+  --color-bg: #0B0F19;
+  --color-bg-alt: #111827;
+  --color-surface: #1F2937;
+  --color-surface-hover: #374151;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-accent: #3B82F6;
+  --color-accent-hover: #2563EB;
+  --color-accent-glow: rgba(59, 130, 246, 0.35);
+  --color-card-bg: rgba(17, 24, 39, 0.85);
+  --color-glass-bg: rgba(17, 24, 39, 0.75);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark-steel"] {
+  --color-bg: #0D1117;
+  --color-bg-alt: #161B22;
+  --color-surface: #21262D;
+  --color-surface-hover: #30363D;
+  --color-border: rgba(249, 115, 22, 0.2);
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #8B949E;
+  --color-accent: #F97316;
+  --color-accent-hover: #EA580C;
+  --color-accent-glow: rgba(249, 115, 22, 0.35);
+  --color-card-bg: rgba(22, 27, 34, 0.85);
+  --color-glass-bg: rgba(22, 27, 34, 0.75);
+  --color-glass-border: rgba(249, 115, 22, 0.15);
+}
+
+[data-theme="dark-navy"] {
+  --color-bg: #0A192F;
+  --color-bg-alt: #112240;
+  --color-surface: #233554;
+  --color-surface-hover: #30475E;
+  --color-border: rgba(56, 189, 248, 0.15);
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #8892B0;
+  --color-text-muted: #A8B2D1;
+  --color-accent: #38BDF8;
+  --color-accent-hover: #0EA5E9;
+  --color-accent-glow: rgba(56, 189, 248, 0.35);
+  --color-card-bg: rgba(17, 34, 64, 0.85);
+  --color-glass-bg: rgba(17, 34, 64, 0.75);
+  --color-glass-border: rgba(56, 189, 248, 0.12);
+}
+
+[data-theme="dark-obsidian"] {
+  --color-bg: #121212;
+  --color-bg-alt: #1E1E1E;
+  --color-surface: #2A2A2A;
+  --color-surface-hover: #383838;
+  --color-border: rgba(245, 158, 11, 0.15);
+  --color-text-primary: #FDFBF7;
+  --color-text-secondary: #D4D4D4;
+  --color-text-muted: #A3A3A3;
+  --color-accent: #F59E0B;
+  --color-accent-hover: #D97706;
+  --color-accent-glow: rgba(245, 158, 11, 0.35);
+  --color-card-bg: rgba(30, 30, 30, 0.85);
+  --color-glass-bg: rgba(30, 30, 30, 0.75);
+  --color-glass-border: rgba(245, 158, 11, 0.12);
+}
+
+[data-theme="dark-cyber"] {
+  --color-bg: #0A0A0F;
+  --color-bg-alt: #12121A;
+  --color-surface: #1A1A26;
+  --color-surface-hover: #262638;
+  --color-border: rgba(16, 185, 129, 0.2);
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-accent: #10B981;
+  --color-accent-hover: #059669;
+  --color-accent-glow: rgba(16, 185, 129, 0.35);
+  --color-card-bg: rgba(18, 18, 26, 0.85);
+  --color-glass-bg: rgba(18, 18, 26, 0.75);
+  --color-glass-border: rgba(16, 185, 129, 0.15);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-bg text-text-primary font-body antialiased;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.025em;
   }
 
   ::selection {
-    @apply bg-accent/30 text-white;
+    background-color: var(--color-accent-glow);
+    color: var(--color-text-primary);
   }
 
-  /* Focus visible para acessibilidade */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-accent rounded-sm;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
   }
 }
 
@@ -33,51 +215,103 @@
     @apply max-w-[1200px] mx-auto px-6;
   }
 
-  /* Efeito de vidro (glassmorphism) escuro */
+  /* Efeito de vidro (glassmorphism) ajustável */
   .glass-dark {
-    @apply bg-white/60 backdrop-blur-xl border border-black/[0.05];
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--color-glass-border);
   }
 
   /* Efeito de vidro para cards */
   .glass-card {
-    @apply bg-white/60 backdrop-blur-lg border border-black/[0.05] rounded-2xl shadow-card;
+    background-color: var(--color-card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Badge sutil (usado na Hero e Sobre) */
+  .glass-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 12px 40px var(--color-accent-glow);
+    transform: translateY(-4px);
+  }
+
+  /* Badge sutil */
   .badge-glow {
-    @apply inline-flex items-center gap-2.5 px-5 py-2 rounded-full 
-           bg-accent/[0.08] border border-accent/20 text-accent text-sm font-medium tracking-wide;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background-color: var(--color-accent-glow);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 5rem;
+    letter-spacing: 0.025em;
   }
 
   /* Botão primário com glow */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 
-           bg-accent text-white px-8 py-4 rounded-full font-semibold 
-           hover:bg-accent-hover hover:shadow-glow hover:-translate-y-1
-           active:scale-95
-           transition-all duration-300 ease-premium
-           focus-visible:outline-accent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px var(--color-accent-glow);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    box-shadow: 0 6px 25px var(--color-accent-glow);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
   }
 
   /* Botão secundário ghost */
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 
-           bg-black/[0.03] backdrop-blur-sm text-text-primary border border-black/10 
-           px-8 py-4 rounded-full font-medium 
-           hover:bg-black/[0.06] hover:border-black/20 hover:-translate-y-1 hover:shadow-sm
-           active:scale-95
-           transition-all duration-300 ease-premium;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-accent-glow);
   }
 
   /* Linha decorativa de seção */
   .section-line {
-    @apply w-10 h-[2px] bg-accent;
+    width: 2.5rem;
+    height: 2px;
+    background-color: var(--color-accent);
   }
 }
 
 @layer utilities {
-  /* Gradiente de texto */
   .text-gradient {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-slate-500;
+    color: var(--color-accent);
   }
 }

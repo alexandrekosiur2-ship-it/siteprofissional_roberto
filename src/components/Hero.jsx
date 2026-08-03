@@ -7,7 +7,7 @@ import heroPoster from '../assets/hero_residential_luxury.png';
 const Hero = () => {
   const { scrollY } = useScroll();
 
-  // Animação de fade-out sutil do conteúdo apenas no scroll (sem transformar a matriz do vídeo no GPU)
+  // Animação de fade-out sutil do conteúdo apenas no scroll
   const contentOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const contentY = useTransform(scrollY, [0, 400], [0, 60]);
 
@@ -17,7 +17,7 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Seção principal"
     >
-      {/* Background de Vídeo Estático (Sem transformar a matriz no GPU durante o scroll para desempenho ultra-fluido) */}
+      {/* Background de Vídeo */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
@@ -38,14 +38,14 @@ const Hero = () => {
           />
         </video>
 
-        {/* Overlay claro com gradientes suaves para maior visibilidade do vídeo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/40 via-bg/20 to-bg/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bg/40 via-transparent to-bg/20" />
+        {/* Overlay dinâmico adaptativo ao tema */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/30 to-bg/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg/60 via-transparent to-bg/40" />
       </div>
 
-      {/* Glow decorativo de fundo para garantir legibilidade (Halo Branco) */}
+      {/* Halo de fundo adaptativo */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-        <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-[900px] h-[500px] bg-white/60 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-[900px] h-[500px] bg-bg/70 rounded-full blur-[120px]" />
       </div>
 
       {/* Conteúdo principal */}
@@ -98,7 +98,7 @@ const Hero = () => {
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </a>
           <a href="#contato" className="btn-ghost w-full sm:w-auto">
-            <Shield className="w-4 h-4" />
+            <Shield className="w-4 h-4 text-accent" />
             Falar com o Engenheiro
           </a>
         </motion.div>
@@ -130,7 +130,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="w-9 h-9 rounded-full glass-dark flex items-center justify-center"
+          className="w-9 h-9 rounded-full glass-dark flex items-center justify-center border border-border"
         >
           <ChevronDown className="text-text-primary w-5 h-5" />
         </motion.div>

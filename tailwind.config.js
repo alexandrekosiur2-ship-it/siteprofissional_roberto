@@ -7,28 +7,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        /* — Paleta Light Premium (Minimalista & Luxo) — */
-        primary: {
-          DEFAULT: '#FFFFFF',
-          light: '#F8FAFC',
-          dark: '#E2E8F0',
+        bg: {
+          DEFAULT: 'var(--color-bg)',
+          alt: 'var(--color-bg-alt)',
+        },
+        surface: {
+          DEFAULT: 'var(--color-surface)',
+          hover: 'var(--color-surface-hover)',
         },
         accent: {
-          DEFAULT: '#0F172A', // Slate 900
-          hover: '#334155', // Slate 700
-          glow: 'rgba(15, 23, 42, 0.15)',
-        },
-        bg: {
-          DEFAULT: '#FFFFFF', // Fundo Branco
-          alt: '#E2E8F0', // Slate 200 (Cinza sólido para contraste forte)
+          DEFAULT: 'var(--color-accent)',
+          hover: 'var(--color-accent-hover)',
+          glow: 'var(--color-accent-glow)',
         },
         text: {
-          primary: '#0F172A', // Quase preto para máxima legibilidade
-          secondary: '#475569', // Cinza médio
-          muted: '#94A3B8', // Cinza claro
+          primary: 'var(--color-text-primary)',
+          secondary: 'var(--color-text-secondary)',
+          muted: 'var(--color-text-muted)',
         },
-        border: 'rgba(15, 23, 42, 0.1)',
-        surface: '#FFFFFF',
+        border: 'var(--color-border)',
+        card: 'var(--color-card-bg)',
+        glass: 'var(--color-glass-bg)',
       },
       fontFamily: {
         display: ['Outfit', 'sans-serif'],
@@ -42,10 +41,10 @@ export default {
         'xl': 'clamp(1.125rem, 1rem + 0.5vw, 1.375rem)',
       },
       boxShadow: {
-        'glow': '0 0 30px rgba(15, 23, 42, 0.15)',
-        'glow-sm': '0 0 15px rgba(15, 23, 42, 0.1)',
-        'card': '0 8px 30px rgba(15, 23, 42, 0.08)',
-        'card-hover': '0 12px 40px rgba(15, 23, 42, 0.12)',
+        'glow': '0 0 30px var(--color-accent-glow)',
+        'glow-sm': '0 0 15px var(--color-accent-glow)',
+        'card': '0 8px 30px rgba(0, 0, 0, 0.06)',
+        'card-hover': '0 12px 40px var(--color-accent-glow)',
       },
       borderRadius: {
         '4xl': '2rem',

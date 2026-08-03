@@ -5,9 +5,11 @@
 > 
 > **📖 LEITURA OBRIGATÓRIA ANTES DE QUALQUER AÇÃO:**
 > Após ler este arquivo, a IA **DEVE** ler obrigatoriamente os seguintes documentos antes de escrever código ou tomar decisões de design:
-> 1. `docs/agentes/SKILL_PREMIUM_DESIGNER.md` (Regras de design e qualidade visual).
-> 2. `docs/conteudo/ESTRUTURA_SITE.md` (Briefing, conteúdo e escopo do projeto).
-> 3. `docs/conteudo/Foto perfil pessoal.md` (Bio oficial e dados factuais do profissional).
+> 1. `CHANGELOG.md` (Histórico cronológico de evolução do código e alterações recentes).
+> 2. `docs/agentes/SKILL_PREMIUM_DESIGNER.md` (Regras de design e qualidade visual).
+> 3. `docs/agentes/SKILL_AUDITOR_QUALIDADE.md` (Ciclo obrigatório de auditoria 360° e qualidade).
+> 4. `docs/conteudo/ESTRUTURA_SITE.md` (Briefing, conteúdo e escopo do projeto).
+> 5. `docs/conteudo/Foto perfil pessoal.md` (Bio oficial e dados factuais do profissional).
 > 
 > **🛡️ REGRA DE OURO E ISOLAMENTO DE WORKSPACE (ABSOLUTA)**: 
 > A Inteligência Artificial (Você) é **estritamente proibida de modificar, criar, ler ou alterar arquivos em qualquer outro projeto ou pasta fora de `SITEPROFISSSIONA_ROBERTO`**. Foco 100% exclusivo neste workspace. NUNCA altere arquivos de outros projetos (como CREATOR_OS ou outros repositórios na máquina do usuário).
@@ -22,9 +24,11 @@
 Este projeto tem como objetivo a criação de uma **Landing Page Portfólio Profissional de Alta Performance** para o **Engenheiro Civil Roberto Kosiur de Carvalho Alves**, destacando seus mais de 20 anos de experiência em grandes obras de infraestrutura (Pontes, Viadutos/OAE, Refinarias Petrobrás, Porto do Açu).
 
 ### 📁 Arquivos Vitais do Projeto:
+- **Log de Mudanças**: `CHANGELOG.md` (Histórico de alterações em 3+ arquivos e evolução do código).
 - **Base de Conteúdo**: `docs/conteudo/Foto perfil pessoal.md` (Biografia oficial, histórico profissional, destaques de carreira e fotos).
 - **Briefing de Engenharia**: `docs/conteudo/ESTRUTURA_SITE.md` (Foco das obras, tom de voz e mapa de seções do Roberto).
 - **Manual da Skill de Design**: `docs/agentes/SKILL_PREMIUM_DESIGNER.md` (Diretrizes premium, fluxos de geração de imagens e onboarding).
+- **Skill de Auditoria 360°**: `docs/agentes/SKILL_AUDITOR_QUALIDADE.md` (Laudo Raio-X, auditoria de Design, Copy, SEO e ciclo fechado).
 - **Skill de Extração de Design**: `docs/agentes/SKILL_DESIGN_EXTRACTOR.md` (Engenharia reversa de Design System a partir de URLs).
 - **Biblioteca de Templates**: `docs/templates/` (Templates de design extraídos de sites de referência).
 - **Painel Central**: `AGENTS.md` (Este arquivo na raiz).
@@ -36,29 +40,58 @@ Este projeto tem como objetivo a criação de uma **Landing Page Portfólio Prof
 ### 🎨 Skill: Premium Web Designer Sênior
 - **Onde mora**: `docs/agentes/SKILL_PREMIUM_DESIGNER.md`
 - **O que faz**: Habilidade especial para assumir o papel de Arquiteto de UI/UX. Conduz o usuário em um onboarding interativo, dita regras absolutas de qualidade (tipografia, contraste, glassmorphism), realiza curadoria/aprovação de imagens e gera um Raio-X final de qualidade.
-- **Como Invocar (Gatilho)**:
-  - *"Aja como Premium Web Designer..."*
-  - *"Quero criar uma landing page com o arquiteto de design..."*
-  - *"Crie o site usando sua skill premium..."*
-  - (Ou será ativado automaticamente ao falar sobre o design visual do projeto).
+
+### 🔬 Skill: Auditor de Qualidade 360° (Garantia de Ciclo Fechado)
+- **Onde mora**: `docs/agentes/SKILL_AUDITOR_QUALIDADE.md`
+- **O que faz**: Executa a auditoria completa de Design, Copy, SEO, Acessibilidade (WCAG AAA) e Responsividade ao final de cada implementação, garantindo a execução do **Ciclo Fechado em 4 Etapas** com nota mínima 8.0/10.
 
 ### 🔍 Skill: Web Design Extractor (Engenharia Reversa)
 - **Onde mora**: `docs/agentes/SKILL_DESIGN_EXTRACTOR.md`
-- **O que faz**: Acessa qualquer URL de site premium, extrai o Design System completo (paleta de cores, tipografia, espaçamento, layout, efeitos visuais, componentes e arquitetura de seções) e salva como template reutilizável em `docs/templates/`.
-- **Como Invocar (Gatilho)**:
-  - *"Extraia o design desse site: [URL]"*
-  - *"Analise o design system dessa página"*
-  - *"Modele esse site como template"*
-  - *"Faça engenharia reversa desse site"*
+- **O que faz**: Acessa qualquer URL de site premium, extrai o Design System completo e salva como template reutilizável em `docs/templates/`.
 
 ---
 
-## 3. Diretrizes de Segurança e Boas Práticas
+## 3. O Ciclo Fechado Obrigatório do Projeto (Regra Inviolável)
+
+Toda e qualquer alteração de código ou funcionalidade DEVE seguir este ciclo de 4 etapas:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ 1. PLANO (implementation_plan.md)                       │
+│    Diagnóstico, definição de escopo e aprovação         │
+└──────────────────────────┬──────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────┐
+│ 2. EXECUÇÃO (task.md & Código Clean)                    │
+│    Implementação modular, responsiva e semântica        │
+└──────────────────────────┬──────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────┐
+│ 3. AVALIAÇÃO (Laudo Raio-X 360°)                        │
+│    Auditoria de Design, Contraste, Copy, SEO e UX       │
+└──────────────────────────┬──────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────┐
+│ 4. CORREÇÃO & LOG (CHANGELOG.md)                        │
+│    Se nota < 8.0 → Refatorar. Se 3+ arquivos → Log     │
+└──────────────────────────┬──────────────────────────────┘
+```
+
+---
+
+## 4. Diretrizes de Segurança e Boas Práticas
 
 1. **Escopo Estrito**: Todas as leituras, criações, edições e comandos devem ser feitos **exclusivamente** na pasta `SITEPROFISSSIONA_ROBERTO`.
-2. **Design Premium**: O site do Engenheiro Roberto deve transparecer autoridade, segurança, robustez e excelência técnica, alinhado com o porte de obras industriais e de infraestrutura.
-3. **Preservação de Conteúdo**: Todo o conteúdo factual presente em `docs/conteudo/Foto perfil pessoal.md` deve ser respeitado. A IA deve ADAPTAR o texto para copywriting web (frases curtas, impacto, bullet points), mantendo todos os fatos verídicos.
-4. **Qualidade Mínima**: Nenhuma entrega visual deve ser considerada finalizada sem o **Laudo Raio-X** da Skill Premium Designer, com nota mínima de 8/10 em todos os critérios.
+2. **Design Premium**: O site do Engenheiro Roberto deve transparecer autoridade, segurança, robustez e excelência técnica.
+3. **Preservação de Conteúdo**: Todo o conteúdo factual presente em `docs/conteudo/Foto perfil pessoal.md` deve ser respeitado.
+4. **Qualidade Mínima (Ciclo Fechado)**: Nenhuma entrega deve ser considerada concluída sem a emissão do **Laudo Raio-X 360°**, exigindo nota mínima de 8.0/10 em todos os 10 quesitos.
+5. **Registro de Log de Mudanças (Regra dos 3+ Arquivos)**: Sempre que uma alteração envolver **3 ou mais arquivos**, a IA **DEVE** obrigatoriamente registrar o resumo, a data e a lista de arquivos alterados no `CHANGELOG.md`.
+6. **Consulta de Skills Externas On-Demand & Auditoria Prévia**: A IA prioriza 100% as Skills Locais em `docs/agentes/`. Quando o usuário solicitar uma pesquisa ou uso de skill externa do repositório `agentic-awesome-skills`, a IA executará a consulta em tempo real sem instalar nada no computador, utilizando o comando:
+   `npx agentic-awesome-skills --antigravity --skills <NOME_DA_SKILL> --dry-run`
+   *⚠️ REGRA DE APROVAÇÃO:* Antes de aplicar qualquer regra da skill externa, a IA deve emitir o **Laudo de Avaliação de Skill Externa** (score 0-10 na `SKILL_AUDITOR_QUALIDADE.md`), autorizando a aplicação somente se a média for **≥ 8.0/10**.
 
 ---
-*Status do Projeto: Ativo e Isolado em SITEPROFISSSIONA_ROBERTO | 2 Skills Online | v2.0 — Atualizado em 01/08/2026*
+*Status do Projeto: Ativo e Isolado em SITEPROFISSSIONA_ROBERTO | 3 Skills Online | v3.2 — Atualizado em 03/08/2026*
