@@ -141,7 +141,7 @@ const About = () => {
                       <p className="text-xs text-text-secondary">Engenheiro Civil · CREA/SP</p>
                     </div>
                     <span className="px-3 py-1 text-xs font-semibold rounded-full bg-accent/15 text-accent border border-accent/30">
-                      +20 Anos
+                      +15 Anos
                     </span>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ const About = () => {
 
             <div className="space-y-4 text-text-secondary text-base leading-relaxed mb-8">
               <p>
-                Engenheiro Civil com mais de 20 anos de experiência, especializado na gestão e execução de <strong className="text-text-primary">obras prediais e conjuntos residenciais de médio e grande porte</strong> (como Parque do Sol, Link Ipiranga, Parque das Cerejeiras e Bem Viver).
+                Engenheiro Civil com mais de 15 anos de experiência, especializado na gestão e execução de <strong className="text-text-primary">obras prediais e conjuntos residenciais de médio e grande porte</strong> (como Parque do Sol, Link Ipiranga, Parque das Cerejeiras e Bem Viver).
               </p>
               <p>
                 O grande diferencial da sua atuação vem da bagagem acumulada no gerenciamento de <strong className="text-text-primary">megaobras de infraestrutura de escala nacional</strong> — como refinarias da Petrobrás, pontes do Grupo CCR e o Porto do Açu. Essa experiência traz um nível incomparável de precisão técnica, planejamento físico-financeiro, controle de qualidade e rigor no cumprimento de prazos para os projetos residenciais.

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Home, ShieldCheck, Building2, Factory, FileCheck, ArrowUpRight, Ruler } from 'lucide-react';
 
@@ -6,15 +6,76 @@ const Services = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [activeCard, setActiveCard] = useState(null);
   const [cardWidth, setCardWidth] = useState(0);
+  const [isMeasuring, setIsMeasuring] = useState(false);
+  const fadeTimeoutRef = useRef(null);
+
+  // Estado do cursor do mouse em formato CAD para a seção de Serviços
+  const [sectionCursorPos, setSectionCursorPos] = useState({ x: 0, y: 0 });
+  const [isSectionHovered, setIsSectionHovered] = useState(false);
+
+  const handleSectionMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setSectionCursorPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleSectionTouchMove = (e) => {
+    if (e.touches && e.touches[0]) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      setSectionCursorPos({
+        x: e.touches[0].clientX - rect.left,
+        y: e.touches[0].clientY - rect.top,
+      });
+    }
+  };
+
+  const triggerMeasurement = (x, y, width, cardId) => {
+    setCursorPos({ x, y });
+    setCardWidth(width);
+    setActiveCard(cardId);
+    setIsMeasuring(true);
+
+    if (fadeTimeoutRef.current) {
+      clearTimeout(fadeTimeoutRef.current);
+    }
+
+    // A trena faz o rastro durante o movimento e depois de 1.2 segundos sem movimento, ela SOME suavemente!
+    fadeTimeoutRef.current = setTimeout(() => {
+      setIsMeasuring(false);
+    }, 1200);
+  };
 
   const handleMouseMove = (e, cardId) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const relativeX = e.clientX - rect.left;
     const relativeY = e.clientY - rect.top;
-    
-    setCursorPos({ x: relativeX, y: relativeY });
-    setCardWidth(rect.width);
+    triggerMeasurement(relativeX, relativeY, rect.width, cardId);
   };
+
+  const handleTouchMove = (e, cardId) => {
+    if (e.touches && e.touches[0]) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const relativeX = e.touches[0].clientX - rect.left;
+      const relativeY = e.touches[0].clientY - rect.top;
+      triggerMeasurement(relativeX, relativeY, rect.width, cardId);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setActiveCard(null);
+    setIsMeasuring(false);
+    if (fadeTimeoutRef.current) {
+      clearTimeout(fadeTimeoutRef.current);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (fadeTimeoutRef.current) clearTimeout(fadeTimeoutRef.current);
+    };
+  }, []);
 
   const specialties = [
     {
@@ -75,12 +136,84 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-section bg-bg-alt relative overflow-hidden transition-colors duration-400">
+    <section
+      id="servicos"
+      onMouseMove={handleSectionMouseMove}
+      onTouchStart={(e) => { setIsSectionHovered(true); handleSectionTouchMove(e); }}
+      onTouchMove={handleSectionTouchMove}
+      onTouchEnd={() => setIsSectionHovered(false)}
+      onMouseEnter={() => setIsSectionHovered(true)}
+      onMouseLeave={() => setIsSectionHovered(false)}
+      className="py-section bg-bg-alt relative overflow-hidden transition-colors duration-400"
+    >
       {/* Grade de Blueprint / Planta Baixa de fundo */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-50" />
       
       {/* Glow de luz ambiente */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
+
+      {/* PONTEIRO DO MOUSE ESTILO AUTOCAD (CROSSHAIR X/Y + PICKBOX + COORDENADAS) */}
+      <AnimatePresence>
+        {isSectionHovered && !activeCard && (
+          <>
+            {/* Linha do Eixo X (Horizontal - Vermelho CAD) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ top: `${sectionCursorPos.y}px` }}
+              className="absolute inset-x-0 z-20 h-[1px] bg-gradient-to-r from-transparent via-red-500/80 to-transparent pointer-events-none"
+            />
+
+            {/* Linha do Eixo Y (Vertical - Verde CAD) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ left: `${sectionCursorPos.x}px` }}
+              className="absolute inset-y-0 z-20 w-[1px] bg-gradient-to-b from-transparent via-emerald-500/80 to-transparent pointer-events-none"
+            />
+
+            {/* Pickbox CAD (Quadrado no centro do cursor) */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              style={{ left: `${sectionCursorPos.x}px`, top: `${sectionCursorPos.y}px` }}
+              className="absolute z-30 -translate-x-1/2 -translate-y-1/2 w-3 h-3 border border-white bg-slate-900/60 shadow-[0_0_8px_rgba(255,255,255,0.7)] pointer-events-none"
+            />
+
+            {/* Tag de Coordenadas CAD em tempo real ao lado do cursor */}
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              style={{ left: `${sectionCursorPos.x + 12}px`, top: `${sectionCursorPos.y + 12}px` }}
+              className="absolute z-30 hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-900/90 text-white font-mono text-[10px] shadow-lg border border-slate-700/80 pointer-events-none backdrop-blur-md"
+            >
+              <span className="text-red-400 font-bold">X: {Math.round(sectionCursorPos.x)}</span>
+              <span className="text-slate-500">|</span>
+              <span className="text-emerald-400 font-bold">Y: {Math.round(sectionCursorPos.y)}</span>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Ícone Puro de Eixos X e Y do CAD (Alinhado à Interseção da Grade) */}
+      <div className="absolute bottom-[32px] left-[32px] z-20 pointer-events-none hidden sm:block font-mono">
+        <div className="relative w-12 h-12">
+          {/* Ponto de Origem na Interseção da Grade */}
+          <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_6px_rgba(255,255,255,0.9)]" />
+
+          {/* Eixo X (Linha Vermelha para Direita) */}
+          <div className="absolute bottom-0 left-0 w-8 h-[1.5px] bg-red-500" />
+          <span className="absolute bottom-[-4px] left-[36px] text-[11px] font-black text-red-500 leading-none">X</span>
+
+          {/* Eixo Y (Linha Verde para Cima) */}
+          <div className="absolute bottom-0 left-0 w-[1.5px] h-8 bg-emerald-400" />
+          <span className="absolute top-[-12px] left-[-3px] text-[11px] font-black text-emerald-400 leading-none">Y</span>
+        </div>
+      </div>
 
       <div className="container-main relative z-10">
         
@@ -115,9 +248,11 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onMouseMove={(e) => handleMouseMove(e, item.id)}
-                onMouseEnter={() => setActiveCard(item.id)}
-                onMouseLeave={() => setActiveCard(null)}
-                className={`group relative bg-surface border border-border rounded-2xl p-8 hover:border-accent/40 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-card cursor-none ${item.colSpan}`}
+                onTouchStart={(e) => handleTouchMove(e, item.id)}
+                onTouchMove={(e) => handleTouchMove(e, item.id)}
+                onTouchEnd={handleMouseLeave}
+                onMouseLeave={handleMouseLeave}
+                className={`group relative bg-surface border border-border rounded-2xl p-8 hover:border-accent/40 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-card cursor-pointer ${item.colSpan}`}
               >
                 {/* Marcadores CAD */}
                 <div className="absolute top-2 left-2 text-[9px] font-mono text-text-muted group-hover:text-accent transition-colors pointer-events-none">
@@ -133,37 +268,38 @@ const Services = () => {
                   ─── +
                 </div>
 
-                {/* Efeito Rastro da Trena */}
+                {/* Efeito Rastro da Trena CAD (Com Auto-Fade Out) */}
                 <AnimatePresence>
-                  {activeCard === item.id && (
+                  {activeCard === item.id && isMeasuring && (
                     <>
                       <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        initial={{ opacity: 0, scaleX: 0.8 }}
+                        animate={{ opacity: 1, scaleX: 1 }}
+                        exit={{ opacity: 0, transition: { duration: 0.4 } }}
                         style={{
                           top: `${cursorPos.y}px`,
                           width: `${cursorPos.x}px`,
+                          transformOrigin: 'left center'
                         }}
-                        className="absolute left-0 z-20 h-5 bg-accent text-white font-mono text-[9px] font-bold flex items-center justify-between px-2 shadow-glow border-y border-accent/40 -translate-y-1/2 pointer-events-none overflow-hidden"
+                        className="absolute left-0 z-20 h-4 bg-accent/15 border-y border-accent/60 text-accent font-mono text-[9px] font-bold flex items-center justify-between px-2 -translate-y-1/2 pointer-events-none overflow-hidden backdrop-blur-[1px] shadow-[0_0_10px_rgba(245,158,11,0.25)]"
                       >
-                        <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,#fff_0px,#fff_1px,transparent_1px,transparent_6px)] opacity-30" />
-                        <span className="relative z-10 font-extrabold tracking-tighter">0.0m</span>
-                        <span className="relative z-10 font-extrabold">{currentMeters}m</span>
+                        <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,var(--color-accent)_0px,var(--color-accent)_1px,transparent_1px,transparent_6px)] opacity-40" />
+                        <span className="relative z-10 font-mono font-bold text-accent tracking-tighter bg-bg-alt/90 px-1 rounded text-[8px] shadow-sm">0.0m</span>
+                        <span className="relative z-10 font-mono font-bold text-accent bg-bg-alt/90 px-1 rounded text-[8px] shadow-sm">{currentMeters}m</span>
                       </motion.div>
 
                       <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
+                        initial={{ scale: 0.7, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        exit={{ scale: 0, opacity: 0 }}
+                        exit={{ scale: 0.7, opacity: 0, transition: { duration: 0.3 } }}
                         transition={{ type: "spring", stiffness: 450, damping: 25 }}
                         style={{
                           left: `${cursorPos.x}px`,
                           top: `${cursorPos.y}px`,
                         }}
-                        className="absolute z-30 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent text-white font-mono font-black text-xs shadow-glow border border-white/20"
+                        className="absolute z-30 -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-accent text-white font-mono font-bold text-xs shadow-lg shadow-accent/30 border border-white/30"
                       >
-                        <Ruler className="w-4 h-4 text-white animate-pulse" />
+                        <Ruler className="w-3.5 h-3.5 text-white animate-pulse" />
                         <span>{currentMeters}m</span>
                       </motion.div>
                     </>

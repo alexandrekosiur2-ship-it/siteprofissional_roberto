@@ -21,7 +21,7 @@
 
 ## 1. Visão Geral do Projeto
 
-Este projeto tem como objetivo a criação de uma **Landing Page Portfólio Profissional de Alta Performance** para o **Engenheiro Civil Roberto Kosiur de Carvalho Alves**, destacando seus mais de 20 anos de experiência em grandes obras de infraestrutura (Pontes, Viadutos/OAE, Refinarias Petrobrás, Porto do Açu).
+Este projeto tem como objetivo a criação de uma **Landing Page Portfólio Profissional de Alta Performance** para o **Engenheiro Civil Roberto Kosiur de Carvalho Alves**, destacando seus mais de 15 anos de experiência em grandes obras de infraestrutura (Pontes, Viadutos/OAE, Refinarias Petrobrás, Porto do Açu).
 
 ### 📁 Arquivos Vitais do Projeto:
 - **Log de Mudanças**: `CHANGELOG.md` (Histórico de alterações em 3+ arquivos e evolução do código).

@@ -80,16 +80,16 @@ export const PALETTES = [
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  // Ler preferência salva ou usar 'light-clean' por padrão
+  // Ler preferência salva ou usar 'dark-obsidian' (Warm Obsidian) por padrão para PC e Mobile
   const [currentThemeId, setCurrentThemeId] = useState(() => {
     const saved = localStorage.getItem('roberto_site_theme');
     if (saved && PALETTES.some(p => p.id === saved)) {
       return saved;
     }
-    return 'light-clean';
+    return 'dark-obsidian';
   });
 
-  const activePalette = PALETTES.find(p => p.id === currentThemeId) || PALETTES[0];
+  const activePalette = PALETTES.find(p => p.id === currentThemeId) || PALETTES.find(p => p.id === 'dark-obsidian') || PALETTES[0];
   const isDarkMode = activePalette.mode === 'dark';
 
   useEffect(() => {
@@ -100,11 +100,11 @@ export const ThemeProvider = ({ children }) => {
   // Alternador Rápido Sol/Lua (☀️/🌙)
   const toggleMode = () => {
     if (isDarkMode) {
-      // Mudar para o equivalente claro (ou light-clean por padrão)
+      // Mudar para o equivalente claro (light-clean)
       setCurrentThemeId('light-clean');
     } else {
-      // Mudar para o equivalente escuro (ou dark-premium por padrão)
-      setCurrentThemeId('dark-premium');
+      // Mudar para o padrão Warm Obsidian
+      setCurrentThemeId('dark-obsidian');
     }
   };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Phone, MapPin, CheckCircle, MessageSquare } from 'lucide-react';
 
 const Contact = () => {
@@ -10,6 +10,26 @@ const Contact = () => {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCursorPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleTouchMove = (e) => {
+    if (e.touches && e.touches[0]) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      setCursorPos({
+        x: e.touches[0].clientX - rect.left,
+        y: e.touches[0].clientY - rect.top,
+      });
+    }
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -31,14 +51,90 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-section bg-bg-alt relative overflow-hidden transition-colors duration-400">
-      {/* Glow de fundo */}
+    <section
+      id="contato"
+      onMouseMove={handleMouseMove}
+      onTouchStart={(e) => { setIsHovered(true); handleTouchMove(e); }}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={() => setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="py-section bg-bg-alt relative overflow-hidden transition-colors duration-400"
+    >
+      {/* Grade de Blueprint / Linhas Quadriculadas Estilo CAD de Fundo */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-60" />
+      
+      {/* Glow de fundo de luz ambiente */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-sky-500/5 rounded-full blur-[140px] pointer-events-none" />
+
+      {/* PONTEIRO DO MOUSE ESTILO AUTOCAD (CROSSHAIR X/Y + PICKBOX + COORDENADAS) */}
+      <AnimatePresence>
+        {isHovered && (
+          <>
+            {/* Linha do Eixo X (Horizontal - Vermelho CAD) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ top: `${cursorPos.y}px` }}
+              className="absolute inset-x-0 z-20 h-[1px] bg-gradient-to-r from-transparent via-red-500/80 to-transparent pointer-events-none"
+            />
+
+            {/* Linha do Eixo Y (Vertical - Verde CAD) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ left: `${cursorPos.x}px` }}
+              className="absolute inset-y-0 z-20 w-[1px] bg-gradient-to-b from-transparent via-emerald-500/80 to-transparent pointer-events-none"
+            />
+
+            {/* Pickbox CAD (Quadrado no centro do cursor) */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }}
+              className="absolute z-30 -translate-x-1/2 -translate-y-1/2 w-3 h-3 border border-white bg-slate-900/60 shadow-[0_0_8px_rgba(255,255,255,0.7)] pointer-events-none"
+            />
+
+            {/* Tag de Coordenadas CAD em tempo real ao lado do cursor */}
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              style={{ left: `${cursorPos.x + 12}px`, top: `${cursorPos.y + 12}px` }}
+              className="absolute z-30 hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-md bg-slate-900/90 text-white font-mono text-[10px] shadow-lg border border-slate-700/80 pointer-events-none backdrop-blur-md"
+            >
+              <span className="text-red-400 font-bold">X: {Math.round(cursorPos.x)}</span>
+              <span className="text-slate-500">|</span>
+              <span className="text-emerald-400 font-bold">Y: {Math.round(cursorPos.y)}</span>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Ícone Puro de Eixos X e Y do CAD (Alinhado à Interseção da Grade) */}
+      <div className="absolute bottom-[32px] left-[32px] z-20 pointer-events-none hidden sm:block font-mono">
+        <div className="relative w-12 h-12">
+          {/* Ponto de Origem na Interseção da Grade */}
+          <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_6px_rgba(255,255,255,0.9)]" />
+
+          {/* Eixo X (Linha Vermelha para Direita) */}
+          <div className="absolute bottom-0 left-0 w-8 h-[1.5px] bg-red-500" />
+          <span className="absolute bottom-[-4px] left-[36px] text-[11px] font-black text-red-500 leading-none">X</span>
+
+          {/* Eixo Y (Linha Verde para Cima) */}
+          <div className="absolute bottom-0 left-0 w-[1.5px] h-8 bg-emerald-400" />
+          <span className="absolute top-[-12px] left-[-3px] text-[11px] font-black text-emerald-400 leading-none">Y</span>
+        </div>
+      </div>
 
       <div className="container-main relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Lado Esquerdo - Chamada Executiva */}
+          {/* Lado Esquerdo - Chamada Executiva + Viewport Tridimensional 3D do CAD */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,13 +144,13 @@ const Contact = () => {
           >
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="section-line" />
-                <span className="text-accent text-xs font-bold tracking-widest uppercase">
-                  Contato Direto
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-accent text-xs font-bold tracking-[0.2em] uppercase font-display">
+                  CAD // Contato Direto & Gerenciamento
                 </span>
               </div>
 
-              <h2 className="text-4xl font-display font-bold text-text-primary mb-6">
+              <h2 className="text-4xl font-display font-bold text-text-primary mb-4">
                 Vamos estruturar o seu <span className="text-gradient">próximo empreendimento?</span>
               </h2>
 
@@ -101,7 +197,21 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="bg-surface rounded-3xl p-8 md:p-10 border border-border shadow-xl relative">
+            <div className="bg-surface rounded-3xl p-8 md:p-10 border border-border shadow-xl relative overflow-hidden">
+              {/* Marcadores CAD nos Cantos do Formulário */}
+              <div className="absolute top-3 left-3 text-[9px] font-mono text-text-muted pointer-events-none">
+                + ───
+              </div>
+              <div className="absolute top-3 right-3 text-[9px] font-mono text-text-muted pointer-events-none">
+                ─── +
+              </div>
+              <div className="absolute bottom-3 left-3 text-[9px] font-mono text-text-muted pointer-events-none">
+                + ───
+              </div>
+              <div className="absolute bottom-3 right-3 text-[9px] font-mono text-text-muted pointer-events-none">
+                ─── +
+              </div>
+
               {submitted ? (
                 <div className="py-12 text-center flex flex-col items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-500 mb-4">
@@ -121,7 +231,7 @@ const Contact = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-2xl font-display font-bold text-text-primary">
                       Falar no WhatsApp

@@ -107,7 +107,7 @@ const Portfolio = () => {
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               onClick={() => setSelectedProject(project)}
-              className={`group relative h-[420px] rounded-3xl overflow-hidden cursor-none bg-surface border border-border hover:border-accent/40 shadow-sm hover:shadow-card transition-all duration-500 ${project.span}`}
+              className={`group relative h-[420px] rounded-3xl overflow-hidden cursor-pointer bg-surface border border-border hover:border-accent/40 shadow-sm hover:shadow-card transition-all duration-500 ${project.span}`}
             >
               {/* Imagem de Fundo com zoom no hover */}
               <img
