@@ -35,7 +35,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-section bg-bg relative overflow-hidden">
+    <section id="contato" className="py-section bg-white relative overflow-hidden">
       {/* Glow de fundo */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-accent/[0.04] rounded-full blur-[160px] pointer-events-none" />
 
@@ -73,7 +73,7 @@ const Contact = () => {
                 href="https://wa.me/5511996531709" 
                 target="_blank" 
                 rel="noreferrer"
-                className="flex items-center gap-4 p-5 rounded-2xl glass-dark border border-emerald-500/20 hover:border-emerald-500/40 bg-emerald-500/[0.02] transition-all duration-300 group"
+                className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-emerald-500/20 hover:border-emerald-500/40 shadow-sm hover:shadow-md transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                   <Phone className="w-6 h-6" />
@@ -84,7 +84,7 @@ const Contact = () => {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-2xl glass-dark border border-white/5">
+              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-black/10 shadow-sm">
                 <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
                   <MapPin className="w-5 h-5" />
                 </div>
@@ -105,7 +105,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="glass-card p-8 md:p-10 border border-white/10 shadow-2xl relative">
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-black/10 shadow-xl relative">
               {submitted ? (
                 <div className="py-12 text-center flex flex-col items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-4">
@@ -147,7 +147,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Ex: Carlos Silva"
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-black/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors"
                       />
                     </div>
                     <div>
@@ -161,7 +161,7 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="(11) 99999-9999"
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-black/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors"
                       />
                     </div>
                   </div>
@@ -176,7 +176,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Ex: Gestão de Obra Residencial / Consultoria"
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-black/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors"
                     />
                   </div>
 
@@ -191,7 +191,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Descreva a necessidade do seu empreendimento residencial..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-black/[0.02] border border-black/10 text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-400 transition-colors resize-none"
                     />
                   </div>
 

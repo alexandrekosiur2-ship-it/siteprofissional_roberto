@@ -7,45 +7,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        /* — Paleta Dark Premium (Autoridade & Luxo) — */
+        /* — Paleta Light Premium (Minimalista & Luxo) — */
         primary: {
-          DEFAULT: '#0F172A',
-          light: '#1E293B',
-          dark: '#020617',
+          DEFAULT: '#FFFFFF',
+          light: '#F8FAFC',
+          dark: '#E2E8F0',
         },
         accent: {
-          DEFAULT: '#3B82F6',
-          hover: '#2563EB',
-          glow: 'rgba(59, 130, 246, 0.35)',
+          DEFAULT: '#0F172A', // Slate 900
+          hover: '#334155', // Slate 700
+          glow: 'rgba(15, 23, 42, 0.15)',
         },
         bg: {
-          DEFAULT: '#0B0F19',
-          alt: '#111827',
+          DEFAULT: '#FFFFFF', // Fundo Branco
+          alt: '#E2E8F0', // Slate 200 (Cinza sólido para contraste forte)
         },
         text: {
-          primary: '#F1F5F9',
-          secondary: '#94A3B8',
-          muted: '#64748B',
+          primary: '#0F172A', // Quase preto para máxima legibilidade
+          secondary: '#475569', // Cinza médio
+          muted: '#94A3B8', // Cinza claro
         },
-        border: 'rgba(255, 255, 255, 0.08)',
-        surface: '#1F2937',
+        border: 'rgba(15, 23, 42, 0.1)',
+        surface: '#FFFFFF',
       },
       fontFamily: {
         display: ['Outfit', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       fontSize: {
-        'hero': 'clamp(2.5rem, 2rem + 5vw, 5rem)',
+        'hero': 'clamp(2rem, 1.5rem + 4vw, 4.5rem)',
         '4xl': 'clamp(2rem, 1.5rem + 2.5vw, 2.75rem)',
         '3xl': 'clamp(1.75rem, 1.3rem + 2vw, 2.25rem)',
         '2xl': 'clamp(1.375rem, 1.1rem + 1.2vw, 1.75rem)',
         'xl': 'clamp(1.125rem, 1rem + 0.5vw, 1.375rem)',
       },
       boxShadow: {
-        'glow': '0 0 30px rgba(59, 130, 246, 0.4)',
-        'glow-sm': '0 0 15px rgba(59, 130, 246, 0.25)',
-        'card': '0 8px 30px rgba(0, 0, 0, 0.3)',
-        'card-hover': '0 12px 40px rgba(0, 0, 0, 0.5)',
+        'glow': '0 0 30px rgba(15, 23, 42, 0.15)',
+        'glow-sm': '0 0 15px rgba(15, 23, 42, 0.1)',
+        'card': '0 8px 30px rgba(15, 23, 42, 0.08)',
+        'card-hover': '0 12px 40px rgba(15, 23, 42, 0.12)',
       },
       borderRadius: {
         '4xl': '2rem',

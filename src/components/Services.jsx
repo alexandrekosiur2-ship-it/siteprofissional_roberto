@@ -76,9 +76,9 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos" className="py-section bg-bg relative overflow-hidden">
+    <section id="servicos" className="py-section bg-slate-200 relative overflow-hidden">
       {/* Grade de Blueprint / Planta Baixa de fundo */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
       
       {/* Glow de luz ambiente */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-accent/[0.04] rounded-full blur-[150px] pointer-events-none" />
@@ -119,19 +119,19 @@ const Services = () => {
                 onMouseMove={(e) => handleMouseMove(e, item.id)}
                 onMouseEnter={() => setActiveCard(item.id)}
                 onMouseLeave={() => setActiveCard(null)}
-                className={`group relative bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-amber-400/50 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-card cursor-none ${item.colSpan}`}
+                className={`group relative bg-white border border-black/10 rounded-2xl p-8 hover:border-accent/40 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-card cursor-none ${item.colSpan}`}
               >
                 {/* Marcadores de Esquadro Técnico (Canto Blueprint + CAD Crosshair) */}
-                <div className="absolute top-2 left-2 text-[9px] font-mono text-white/20 group-hover:text-amber-400/60 transition-colors pointer-events-none">
+                <div className="absolute top-2 left-2 text-[9px] font-mono text-black/20 group-hover:text-accent/40 transition-colors pointer-events-none">
                   + ───
                 </div>
-                <div className="absolute top-2 right-2 text-[9px] font-mono text-white/20 group-hover:text-amber-400/60 transition-colors pointer-events-none">
+                <div className="absolute top-2 right-2 text-[9px] font-mono text-black/20 group-hover:text-accent/40 transition-colors pointer-events-none">
                   ─── +
                 </div>
-                <div className="absolute bottom-2 left-2 text-[9px] font-mono text-white/20 group-hover:text-amber-400/60 transition-colors pointer-events-none">
+                <div className="absolute bottom-2 left-2 text-[9px] font-mono text-black/20 group-hover:text-accent/40 transition-colors pointer-events-none">
                   + ───
                 </div>
-                <div className="absolute bottom-2 right-2 text-[9px] font-mono text-white/20 group-hover:text-amber-400/60 transition-colors pointer-events-none">
+                <div className="absolute bottom-2 right-2 text-[9px] font-mono text-black/20 group-hover:text-accent/40 transition-colors pointer-events-none">
                   ─── +
                 </div>
 
@@ -198,7 +198,7 @@ const Services = () => {
                   <span className="text-xs font-mono text-text-muted uppercase tracking-wider block mb-1">
                     {item.subtitle}
                   </span>
-                  <h3 className="text-2xl font-display font-bold text-text-primary mb-3 group-hover:text-white transition-colors">
+                  <h3 className="text-2xl font-display font-bold text-text-primary mb-3 group-hover:text-accent transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-text-secondary text-sm leading-relaxed mb-6">
@@ -207,7 +207,7 @@ const Services = () => {
                 </div>
 
                 {/* Rodapé do Card */}
-                <div className="relative z-10 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-text-muted group-hover:text-amber-400 transition-colors">
+                <div className="relative z-10 pt-4 border-t border-black/5 flex items-center justify-between text-xs text-text-muted group-hover:text-accent transition-colors">
                   <span className="font-mono text-[11px] tracking-wide flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-amber-400" />
                     {item.footerTag}

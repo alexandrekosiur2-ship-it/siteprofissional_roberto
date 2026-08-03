@@ -30,8 +30,8 @@ const Navbar = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'py-3 bg-bg/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/10'
-            : 'py-5 bg-transparent border-b border-transparent'
+            ? 'py-3 bg-bg/80 backdrop-blur-xl border-b border-black/[0.06] shadow-lg shadow-black/10'
+            : 'py-5 bg-gradient-to-b from-white/70 to-transparent border-b border-transparent'
         }`}
       >
         <div className="container-main flex items-center justify-between">
@@ -41,7 +41,7 @@ const Navbar = () => {
             <span className="text-xl font-display font-bold tracking-wider text-text-primary leading-none group-hover:text-accent transition-colors duration-300">
               ROBERTO KOSIUR
             </span>
-            <span className="text-[10px] text-text-muted tracking-[0.25em] mt-1 uppercase">
+            <span className="text-[10px] font-bold text-text-secondary tracking-[0.25em] mt-1 uppercase">
               Engenharia Civil
             </span>
           </a>

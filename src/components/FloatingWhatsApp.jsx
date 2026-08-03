@@ -41,7 +41,7 @@ const FloatingWhatsApp = () => {
           <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest block font-bold">
             WhatsApp Direto
           </span>
-          <span className="text-sm font-display font-bold text-text-primary group-hover:text-emerald-400 transition-colors">
+          <span className="text-sm font-display font-bold text-white group-hover:text-emerald-400 transition-colors">
             Falar com Engenheiro
           </span>
         </div>

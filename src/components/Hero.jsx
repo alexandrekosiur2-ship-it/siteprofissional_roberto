@@ -38,14 +38,14 @@ const Hero = () => {
           />
         </video>
 
-        {/* Overlay escuro com gradientes duplos para nitidez impecável */}
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/85 via-bg/60 to-bg" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bg/80 via-transparent to-bg/50" />
+        {/* Overlay claro com gradientes suaves para maior visibilidade do vídeo */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/40 via-bg/20 to-bg/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg/40 via-transparent to-bg/20" />
       </div>
 
-      {/* Glow decorativo de fundo */}
+      {/* Glow decorativo de fundo para garantir legibilidade (Halo Branco) */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/[0.08] rounded-full blur-[130px]" />
+        <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] max-w-[900px] h-[500px] bg-white/60 rounded-full blur-[120px]" />
       </div>
 
       {/* Conteúdo principal */}
@@ -81,7 +81,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
-          className="text-xl text-text-secondary max-w-2xl mx-auto mb-10 font-light leading-relaxed"
+          className="text-xl text-text-primary max-w-2xl mx-auto mb-10 font-medium leading-relaxed"
         >
           Gestão executiva de obras prediais e residenciais de médio e grande porte. A união entre rigor técnico, cumprimento de prazos e sofisticação construtiva.
         </motion.p>
@@ -108,11 +108,11 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-6 mt-14 text-text-muted text-sm"
+          className="flex flex-wrap items-center justify-center gap-6 mt-14 text-text-primary font-medium text-sm"
         >
           {['Edificações Residenciais', 'Gestão de Contratos', 'Compatibilização de Projetos', '+20 Anos de Mercado'].map((item, i) => (
             <span key={i} className="flex items-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-accent" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               {item}
             </span>
           ))}
@@ -124,7 +124,7 @@ const Hero = () => {
         style={{ opacity: contentOpacity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
-        <span className="text-text-muted text-xs font-medium tracking-widest uppercase">
+        <span className="text-text-secondary text-xs font-bold tracking-widest uppercase">
           Explorar
         </span>
         <motion.div
@@ -132,7 +132,7 @@ const Hero = () => {
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
           className="w-9 h-9 rounded-full glass-dark flex items-center justify-center"
         >
-          <ChevronDown className="text-text-secondary w-4 h-4" />
+          <ChevronDown className="text-text-primary w-5 h-5" />
         </motion.div>
       </motion.div>
     </section>

@@ -35,25 +35,26 @@
 
   /* Efeito de vidro (glassmorphism) escuro */
   .glass-dark {
-    @apply bg-white/[0.04] backdrop-blur-xl border border-white/[0.06];
+    @apply bg-white/60 backdrop-blur-xl border border-black/[0.05];
   }
 
   /* Efeito de vidro para cards */
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-lg border border-white/[0.06] rounded-2xl;
+    @apply bg-white/60 backdrop-blur-lg border border-black/[0.05] rounded-2xl shadow-card;
   }
 
   /* Badge sutil (usado na Hero e Sobre) */
   .badge-glow {
     @apply inline-flex items-center gap-2.5 px-5 py-2 rounded-full 
-           bg-accent/10 border border-accent/20 text-accent text-sm font-medium tracking-wide;
+           bg-accent/[0.08] border border-accent/20 text-accent text-sm font-medium tracking-wide;
   }
 
   /* Botão primário com glow */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 
            bg-accent text-white px-8 py-4 rounded-full font-semibold 
-           hover:bg-accent-hover hover:shadow-glow 
+           hover:bg-accent-hover hover:shadow-glow hover:-translate-y-1
+           active:scale-95
            transition-all duration-300 ease-premium
            focus-visible:outline-accent;
   }
@@ -61,9 +62,10 @@
   /* Botão secundário ghost */
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 
-           bg-white/[0.05] backdrop-blur-sm text-text-primary border border-white/10 
+           bg-black/[0.03] backdrop-blur-sm text-text-primary border border-black/10 
            px-8 py-4 rounded-full font-medium 
-           hover:bg-white/10 hover:border-white/20 
+           hover:bg-black/[0.06] hover:border-black/20 hover:-translate-y-1 hover:shadow-sm
+           active:scale-95
            transition-all duration-300 ease-premium;
   }
 
@@ -76,6 +78,6 @@
 @layer utilities {
   /* Gradiente de texto */
   .text-gradient {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-slate-500;
   }
 }

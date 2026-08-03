@@ -70,7 +70,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-section bg-bg-alt relative overflow-hidden">
+    <section id="portfolio" className="py-section bg-white relative overflow-hidden">
       <div className="container-main">
         
         {/* Cabeçalho */}
@@ -109,17 +109,17 @@ const Portfolio = () => {
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
               onClick={() => setSelectedProject(project)}
-              className={`group relative h-[420px] rounded-3xl overflow-hidden cursor-none glass-dark border border-white/10 hover:border-accent/40 shadow-card hover:shadow-card-hover transition-all duration-500 ${project.span}`}
+              className={`group relative h-[420px] rounded-3xl overflow-hidden cursor-none bg-white border border-black/10 hover:border-accent/40 shadow-sm hover:shadow-card transition-all duration-500 ${project.span}`}
             >
               {/* Imagem de Fundo com zoom no hover */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.85] contrast-[1.05]"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter contrast-[1.05]"
               />
               
-              {/* Overlay Escuro com Gradiente Superior e Inferior */}
-              <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-500" />
+              {/* Overlay Claro (Gradient) concentrado apenas na parte inferior para o texto */}
+              <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-white via-white/40 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* CURSOR CUSTOMIZADO DE OBRA (Capacete de Obra ou Prancheta que segue o mouse) */}
               <AnimatePresence>
@@ -151,7 +151,7 @@ const Portfolio = () => {
                   <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/20 text-accent border border-accent/30 backdrop-blur-md">
                     {project.category}
                   </span>
-                  <div className="w-10 h-10 rounded-full glass-dark border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-black/10 flex items-center justify-center text-accent opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -160,7 +160,7 @@ const Portfolio = () => {
                   <span className="text-text-muted text-xs uppercase tracking-wider block mb-1">
                     {project.role} · {project.partner}
                   </span>
-                  <h3 className="text-2xl font-display font-bold text-text-primary group-hover:text-white transition-colors">
+                  <h3 className="text-2xl font-display font-bold text-text-primary group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -179,11 +179,11 @@ const Portfolio = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl bg-bg-alt border border-white/10 rounded-3xl p-8 shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl bg-bg-alt border border-black/10 rounded-3xl p-8 shadow-2xl overflow-hidden"
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-full glass-dark text-text-muted hover:text-white transition-colors"
+                className="absolute top-6 right-6 p-2 rounded-full bg-white border border-black/10 text-text-muted hover:text-accent shadow-sm transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -202,7 +202,7 @@ const Portfolio = () => {
                 {selectedProject.title}
               </h3>
 
-              <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-xl glass-dark border border-white/5 text-sm">
+              <div className="grid grid-cols-2 gap-4 mb-6 p-4 rounded-xl bg-white border border-black/5 shadow-sm text-sm">
                 <div>
                   <span className="text-text-muted block text-xs">Atuação</span>
                   <strong className="text-text-primary font-medium">{selectedProject.role}</strong>

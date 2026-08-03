@@ -11,7 +11,7 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-16 bg-bg-alt relative border-b border-white/5">
+    <section className="py-16 bg-slate-200 relative border-b border-black/[0.05]">
       <div className="container-main">
         <p className="text-center text-xs font-semibold text-text-muted uppercase tracking-[0.2em] mb-10">
           Experiência e Atuação em Projetos Ligados a Grandes Organizações
@@ -25,7 +25,7 @@ const Partners = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="p-4 rounded-xl glass-dark border border-white/5 flex flex-col items-center justify-center text-center group hover:border-accent/30 transition-all duration-300"
+              className="p-4 rounded-xl bg-white border border-black/[0.05] shadow-sm flex flex-col items-center justify-center text-center group hover:border-accent/30 transition-all duration-300"
             >
               <span className="font-display font-bold text-text-primary text-base group-hover:text-accent transition-colors">
                 {partner.name}
