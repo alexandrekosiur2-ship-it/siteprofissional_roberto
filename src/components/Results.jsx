@@ -9,8 +9,8 @@ const AnimatedCounter = ({ target, duration = 2 }) => {
   useEffect(() => {
     if (isInView) {
       let start = 0;
-      const increment = target / (duration * 60); 
-      
+      const increment = target / (duration * 60);
+
       const timer = setInterval(() => {
         start += increment;
         if (start >= target) {

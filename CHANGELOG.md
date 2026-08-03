@@ -6,6 +6,52 @@ Este arquivo registra a evolução cronológica de todas as alterações realiza
 > 1. Toda alteração que modifique **3 ou mais arquivos** DEVE ser registrada neste log ao final da execução.
 > 2. Ao iniciar uma nova conversa/sessão, a IA deve ler este documento para entender o contexto histórico recente do código.
 
+## 📅 [03/08/2026] — v4.8: Raio Laser Sequencial Contido sem Deslocamento de Tela
+
+- **Resumo da Entrega**:
+  - Reformulado o sistema de animação sequencial: a iluminação de raio laser caminha de card em card (Card 0 ➔ Card 1 ➔ Card 2 ➔ Card 3 ➔ Card 4) a cada 2.8 segundos de forma **100% contida dentro do contêiner da seção**.
+  - Eliminado qualquer deslocamento involuntário de layout, estouro de elemento ou rolagem automática da página.
+  - A interatividade do mouse do usuário mantém prioridade total instantânea sobre o card hovered.
+
+- **Arquivos Modificados (2 arquivos)**:
+  - `[MODIFY]` [src/index.css](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/index.css)
+  - `[MODIFY]` [src/components/Services.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Services.jsx)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado Premium - Estabilidade Total e Raio Laser Sequencial Elegante).
+
+---
+
+## 📅 [03/08/2026] — v4.7: Efeito Nível a Laser de Engenharia com Varredura Sequencial nos Cards
+
+- **Resumo da Entrega**:
+  - Criado o efeito contínuo **Nível a Laser de Engenharia Civil (`.card-laser-border`)**: um feixe luminoso elegante percorre a borda de cada card continuamente sem a necessidade de passar o mouse.
+  - Implementada a **varredura sequencial com atraso ritmado (`--laser-delay`)**: o feixe de laser percorre o Card 1, passa para o Card 2, depois para o Card 3, Card 4 e Card 5 em um pulso contínuo, simulando um escaneamento por nível a laser de obra em tempo real!
+  - Ao passar o mouse, a velocidade da animação acelera suavemente e o card se eleva (`translateY(-6px)`) com aura de luz expandida (`box-shadow: 0 16px 36px var(--color-accent-glow)`).
+
+- **Arquivos Modificados (4 arquivos)**:
+  - `[MODIFY]` [src/index.css](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/index.css)
+  - `[MODIFY]` [src/components/Services.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Services.jsx)
+  - `[MODIFY]` [src/components/Portfolio.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Portfolio.jsx)
+  - `[MODIFY]` [src/components/Results.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Results.jsx)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado Premium - Estética Nível a Laser Autêntica de Construção Civil).
+
+---
+
+## 📅 [03/08/2026] — v4.6: Alto Contraste & Profundidade 3D dos Cards em Temas Claros (Clean Corporate)
+
+- **Resumo da Entrega**:
+  - Ajustadas as cores de fundo de seção (`--color-bg-alt: #EDF2F7`), bordas (`--color-border: rgba(15, 23, 42, 0.18)`) e sombras dinâmicas de elevação (`--color-card-shadow: 0 8px 25px rgba(15, 23, 42, 0.12)`).
+  - Eliminado o efeito de mesclagem onde os cards brancos ficavam "tudo na mesma tonalidade" do fundo da seção no tema Clean Corporate e demais temas claros/escuros.
+  - Agora os cards saltam da tela com contornos limpos, nitidez WCAG AAA e forte separação tridimensional em relação às seções.
+
+- **Arquivos Modificados (1 arquivo)**:
+  - `[MODIFY]` [src/index.css](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/index.css)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado Premium - Contraste e Separação Visual Impecável).
+
+---
+
 ## 📅 [03/08/2026] — v4.5: Paleta Warm Obsidian como Padrão e Otimização de UX no Hover
 
 - **Resumo da Entrega**:

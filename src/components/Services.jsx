@@ -13,6 +13,19 @@ const Services = () => {
   const [sectionCursorPos, setSectionCursorPos] = useState({ x: 0, y: 0 });
   const [isSectionHovered, setIsSectionHovered] = useState(false);
 
+  // Estado para ciclo sequencial do raio/laser de card em card (100% contido na seção visual, sem mover tela)
+  const [activeCycleIndex, setActiveCycleIndex] = useState(0);
+
+  useEffect(() => {
+    if (activeCard) return;
+
+    const interval = setInterval(() => {
+      setActiveCycleIndex((prevIndex) => (prevIndex + 1) % 5);
+    }, 2800);
+
+    return () => clearInterval(interval);
+  }, [activeCard]);
+
   const handleSectionMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setSectionCursorPos({
@@ -148,7 +161,7 @@ const Services = () => {
     >
       {/* Grade de Blueprint / Planta Baixa de fundo */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-50" />
-      
+
       {/* Glow de luz ambiente */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
 
@@ -216,7 +229,7 @@ const Services = () => {
       </div>
 
       <div className="container-main relative z-10">
-        
+
         {/* Cabeçalho de Seção com Estilo de Engenharia */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -239,6 +252,7 @@ const Services = () => {
           {specialties.map((item, index) => {
             const IconComponent = item.icon;
             const currentMeters = ((cursorPos.x / (cardWidth || 1)) * 45 + 5).toFixed(1);
+            const isCurrentActive = activeCard ? activeCard === item.id : activeCycleIndex === index;
 
             return (
               <motion.div
@@ -252,8 +266,24 @@ const Services = () => {
                 onTouchMove={(e) => handleTouchMove(e, item.id)}
                 onTouchEnd={handleMouseLeave}
                 onMouseLeave={handleMouseLeave}
-                className={`group relative bg-surface border border-border rounded-2xl p-8 hover:border-accent/40 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-card cursor-pointer ${item.colSpan}`}
+                className={`group relative bg-surface rounded-2xl p-8 transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-sm cursor-pointer border ${
+                  isCurrentActive
+                    ? 'border-accent shadow-[0_0_25px_var(--color-accent-glow)] ring-1 ring-accent/60 -translate-y-1'
+                    : 'border-border hover:border-accent/40'
+                } ${item.colSpan}`}
               >
+                {/* Moldura de Raio / Feixe de Laser de Nivelamento Contido no Card */}
+                {isCurrentActive && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 rounded-2xl border-2 border-accent pointer-events-none z-10 shadow-[inset_0_0_15px_var(--color-accent-glow)]"
+                  >
+                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent animate-pulse" />
+                  </motion.div>
+                )}
                 {/* Marcadores CAD */}
                 <div className="absolute top-2 left-2 text-[9px] font-mono text-text-muted group-hover:text-accent transition-colors pointer-events-none">
                   + ───
@@ -312,7 +342,7 @@ const Services = () => {
                     <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-300 shadow-sm">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    
+
                     <div className="flex items-center gap-3">
                       <span className="text-[10px] font-mono text-text-muted group-hover:text-accent transition-colors tracking-widest">
                         {item.code}

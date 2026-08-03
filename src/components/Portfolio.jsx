@@ -70,7 +70,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-section bg-bg relative overflow-hidden transition-colors duration-400">
       <div className="container-main">
-        
+
         {/* Cabeçalho */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
@@ -81,13 +81,13 @@ const Portfolio = () => {
               </span>
             </div>
             <h2 className="text-4xl font-display font-bold text-text-primary">
-              Empreendimentos <br/>
+              Empreendimentos <br />
               <span className="text-gradient">Residenciais & Estruturais</span>
             </h2>
           </div>
-          
-          <a 
-            href="#contato" 
+
+          <a
+            href="#contato"
             className="btn-ghost !py-3 !px-6 text-sm self-start md:self-auto"
           >
             Solicitar Apresentação Técnica <ArrowUpRight className="w-4 h-4" />
@@ -115,7 +115,7 @@ const Portfolio = () => {
                 alt={project.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter contrast-[1.05]"
               />
-              
+
               {/* Overlay de gradiente dinâmico para garantir legibilidade dos textos em qualquer tema */}
               <div className="absolute inset-x-0 bottom-0 h-4/5 bg-gradient-to-t from-bg via-bg/70 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -142,7 +142,7 @@ const Portfolio = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-              
+
               {/* Informações da Obra */}
               <div className="absolute inset-0 p-8 flex flex-col justify-between z-10 pointer-events-none">
                 <div className="flex items-center justify-between">
