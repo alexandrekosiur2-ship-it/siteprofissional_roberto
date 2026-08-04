@@ -136,7 +136,7 @@ const Hero = () => {
         style={{ opacity: contentOpacity }}
         className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10"
       >
-        <span className="text-slate-400 text-[10px] font-bold tracking-widest uppercase drop-shadow">
+        <span className="text-slate-300 text-[10px] font-bold tracking-widest uppercase drop-shadow">
           Explorar
         </span>
         <motion.div

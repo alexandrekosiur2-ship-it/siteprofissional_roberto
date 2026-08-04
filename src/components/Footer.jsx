@@ -40,9 +40,9 @@ const Footer = () => {
           </button>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <p>© {new Date().getFullYear()} Roberto Kosiur. Todos os direitos reservados.</p>
-          <p className="tracking-wide text-slate-400">Gestão & Engenharia de Empreendimentos Residenciais</p>
+          <p className="tracking-wide text-slate-300">Gestão & Engenharia de Empreendimentos Residenciais</p>
         </div>
       </div>
     </footer>
