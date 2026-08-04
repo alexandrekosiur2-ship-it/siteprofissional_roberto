@@ -2,21 +2,20 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, HardHat, ClipboardList } from 'lucide-react';
 
-import imgResidential from '../assets/portfolio_residential.png';
-import imgBridge from '../assets/portfolio_bridge.png';
-import imgRefinery from '../assets/portfolio_refinery.png';
-import imgPort from '../assets/portfolio_port.png';
+import imgResidential from '../assets/portfolio_residential.webp';
+import imgBridge from '../assets/portfolio_bridge.webp';
+import imgRefinery from '../assets/portfolio_refinery.webp';
+import imgPort from '../assets/portfolio_port.webp';
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [hoveredProject, setHoveredProject] = useState(null);
 
-  const handleMouseMove = (e, projectId) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+  const handleMouseMove = (e) => {
     setCursorPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+      x: e.nativeEvent.offsetX,
+      y: e.nativeEvent.offsetY,
     });
   };
 

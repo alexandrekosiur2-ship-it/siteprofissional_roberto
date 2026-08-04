@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Award, Briefcase, Building, Home } from 'lucide-react';
-import profileImg from '../assets/foto_roberto3.jpeg';
+import profileImg from '../assets/foto_roberto3.webp';
 
 const About = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
 
   const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    const width = e.currentTarget.clientWidth;
+    const height = e.currentTarget.clientHeight;
+    const x = e.nativeEvent.offsetX;
+    const y = e.nativeEvent.offsetY;
+    const centerX = width / 2;
+    const centerY = height / 2;
     
     setRotateX(((y - centerY) / centerY) * -8);
     setRotateY(((x - centerX) / centerX) * 8);

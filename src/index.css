@@ -295,7 +295,8 @@
     color: #FFFFFF;
     padding: 1rem 2rem;
     border-radius: 9999px;
-    font-weight: 600;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 14px var(--color-accent-glow);
   }

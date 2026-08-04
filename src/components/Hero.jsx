@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, ArrowRight, Home, Shield } from 'lucide-react';
 import heroVideo from '../assets/hero_construction_light.mp4';
 import heroVideoWebm from '../assets/hero_construction.webm';
-import heroPoster from '../assets/hero_residential_luxury.png';
+import heroPoster from '../assets/hero_residential_luxury.webp';
 
 const Hero = () => {
   const { scrollY } = useScroll();
