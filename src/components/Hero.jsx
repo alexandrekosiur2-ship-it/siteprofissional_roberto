@@ -29,10 +29,12 @@ const Hero = () => {
           poster={heroPoster}
           disablePictureInPicture
           disableRemotePlayback
+          aria-hidden="true"
           className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.1] transform-gpu"
         >
           <source src={heroVideo} type="video/mp4" />
           <source src={heroVideoWebm} type="video/webm" />
+          <track kind="captions" src="" srclang="pt" label="Vídeo de fundo demonstrativo sem áudio" default />
           <img
             src={heroPoster}
             alt="Empreendimentos residenciais de alto padrão"

@@ -83,7 +83,7 @@ const About = () => {
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-surface/90 border border-border backdrop-blur-md shadow-sm z-10">
                   <div className="flex items-center justify-between text-text-primary">
                     <div>
-                      <h4 className="font-display font-bold text-lg">Roberto Kosiur</h4>
+                      <p className="font-display font-bold text-lg">Roberto Kosiur</p>
                       <p className="text-xs text-text-secondary">Engenheiro Civil · CREA/SP</p>
                     </div>
                     <span className="px-3 py-1 text-xs font-semibold rounded-full bg-accent/15 text-accent border border-accent/30">
@@ -138,10 +138,10 @@ const About = () => {
 
             {/* Destaque Institucional ABEMI */}
             <div className="p-5 rounded-2xl bg-surface border border-accent/25 shadow-sm">
-              <h4 className="text-sm font-bold text-text-primary mb-1 flex items-center gap-2">
+              <h3 className="text-sm font-bold text-text-primary mb-1 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent" />
                 Contribuição Técnica & Qualidade
-              </h4>
+              </h3>
               <p className="text-xs text-text-secondary leading-relaxed">
                 Atuação no <strong className="text-text-primary">Comitê ABEMI</strong> na padronização de procedimentos executivos, garantindo metodologias de alta produtividade e segurança aplicadas à construção de edifícios residenciais.
               </p>
