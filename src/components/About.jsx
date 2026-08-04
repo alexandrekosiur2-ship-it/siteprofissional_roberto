@@ -1,27 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Award, Briefcase, Building, Home, Pencil, Compass } from 'lucide-react';
-import profileImg from '../assets/foto_roberto.jpeg';
-
-// Ícone SVG de Esquadro Técnico Triangulado (Set Square de Arquitetura & Engenharia)
-const SetSquareIcon = ({ className }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M4 20L20 20L4 4Z" />
-    <path d="M7 17L14 17L7 10Z" />
-    <line x1="4" y1="14" x2="6" y2="14" />
-    <line x1="4" y1="10" x2="6" y2="10" />
-    <line x1="10" y1="20" x2="10" y2="18" />
-    <line x1="14" y1="20" x2="14" y2="18" />
-  </svg>
-);
+import { CheckCircle2, Award, Briefcase, Building, Home } from 'lucide-react';
+import profileImg from '../assets/foto_roberto3.jpeg';
 
 const About = () => {
   const [rotateX, setRotateX] = useState(0);
@@ -58,7 +38,7 @@ const About = () => {
       <div className="container-main relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Lado Esquerdo - Foto de Perfil cercada por Esquadro, Lápis e Compasso */}
+          {/* Lado Esquerdo - Foto de Perfil */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -66,40 +46,6 @@ const About = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-5 relative perspective-1000"
           >
-            {/* 1. ESQUADRO TÉCNICO DE ARQUITETURA 📐 */}
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="absolute -bottom-5 -left-5 z-30 w-12 h-12 rounded-2xl bg-surface border border-border text-accent shadow-lg flex items-center justify-center pointer-events-none hidden sm:flex"
-            >
-              <SetSquareIcon className="w-6 h-6 animate-pulse" />
-            </motion.div>
-
-            {/* 2. LÁPIS DE DESENHO TÉCNICO ✏️ */}
-            <motion.div
-              animate={{ y: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 z-30 w-11 h-11 rounded-2xl bg-surface border border-border text-accent shadow-lg flex items-center justify-center pointer-events-none hidden sm:flex"
-            >
-              <Pencil className="w-5 h-5" />
-            </motion.div>
-
-            {/* 3. COMPASSO DE PROJETO 🧭 */}
-            <motion.div
-              animate={{ rotate: [-3, 3, -3] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="absolute top-8 -left-5 z-30 w-10 h-10 rounded-xl bg-surface border border-border text-text-secondary shadow-md flex items-center justify-center pointer-events-none hidden sm:flex"
-            >
-              <Compass className="w-4 h-4" />
-            </motion.div>
-
-            {/* 4. Cota de Desenho Técnico CAD */}
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex items-center gap-2 text-[9px] font-mono text-accent/60 tracking-widest pointer-events-none hidden sm:flex">
-              <span className="w-6 h-[1px] bg-accent/40" />
-              <span>├─ ANÁLISE DE PLANTA ─┤</span>
-              <span className="w-6 h-[1px] bg-accent/40" />
-            </div>
-
             {/* CARD DA FOTO PRINCIPAL COM INTERAÇÃO TILT */}
             <motion.div
               onMouseMove={handleMouseMove}

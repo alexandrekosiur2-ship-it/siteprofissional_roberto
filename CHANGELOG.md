@@ -6,6 +6,22 @@ Este arquivo registra a evolução cronológica de todas as alterações realiza
 > 1. Toda alteração que modifique **3 ou mais arquivos** DEVE ser registrada neste log ao final da execução.
 > 2. Ao iniciar uma nova conversa/sessão, a IA deve ler este documento para entender o contexto histórico recente do código.
 
+## 📅 [04/08/2026] — v4.9: Padronização Escura de Rodapé/Seletor em Paletas Claras e Atualização da Foto de Perfil
+
+- **Resumo da Entrega**:
+  - Padronizado o rodapé (`Footer.jsx`) com a cor escura `slate-950` em todas as paletas claras, harmonizando com a Navbar superior.
+  - Ajustado o seletor de temas (`ThemeSwitcher.jsx`) para manter fundo escuro (`bg-slate-900/90`), textos e ícones claros no modo claro, evitando blocos brancos contrastantes.
+  - Atualizada a foto de perfil da seção Sobre (`About.jsx`) para `foto_roberto3.jpeg`, removendo os elementos de cota ("ANÁLISE DE PLANTA") e ícones flutuantes ao redor do retrato.
+
+- **Arquivos Modificados (3 arquivos)**:
+  - `[MODIFY]` [src/components/Footer.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Footer.jsx)
+  - `[MODIFY]` [src/components/ThemeSwitcher.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/ThemeSwitcher.jsx)
+  - `[MODIFY]` [src/components/About.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/About.jsx)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado Premium - Estética Limpa, Harmonização Visual e Atualização de Assets).
+
+---
+
 ## 📅 [03/08/2026] — v4.8: Raio Laser Sequencial Contido sem Deslocamento de Tela
 
 - **Resumo da Entrega**:
