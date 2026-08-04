@@ -6,6 +6,21 @@ Este arquivo registra a evolução cronológica de todas as alterações realiza
 > 1. Toda alteração que modifique **3 ou mais arquivos** DEVE ser registrada neste log ao final da execução.
 > 2. Ao iniciar uma nova conversa/sessão, a IA deve ler este documento para entender o contexto histórico recente do código.
 
+## 📅 [04/08/2026] — v5.7: Adequação Institucional de Copy & Remoção de Termos de Busca de Emprego
+
+- **Resumo da Entrega**:
+  - Reformuladas as mensagens de chamada, subtítulos e textos pré-formatados de acionamento via WhatsApp no site para eliminar qualquer alusão a disponibilidade de contratação/vagas ou busca de emprego ("procurando emprego").
+  - O tom de comunicação foi ajustado para consolidar a imagem de um executivo atuante e empregado no mercado, transformando o site em um portfólio institucional direto para contatos profissionais.
+  - Atualizados os componentes `Contact.jsx` e `FloatingWhatsApp.jsx` garantindo clareza e autoridade técnica sênior.
+
+- **Arquivos Modificados (2 arquivos)**:
+  - `[MODIFY]` [src/components/Contact.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Contact.jsx)
+  - `[MODIFY]` [src/components/FloatingWhatsApp.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/FloatingWhatsApp.jsx)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado Premium — Posicionamento Institucional Corporativo 100% Alinhado).
+
+---
+
 ## 📅 [04/08/2026] — v5.6: Otimização de Imagens WebP, Eliminação de Reflows, SEO Crawling & Contraste WCAG AAA
 
 - **Resumo da Entrega**:

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, MapPin, ArrowUpRight, MessageSquare, Globe } from 'lucide-react';
 
 const Contact = () => {
-  const whatsappUrl = `https://wa.me/5511996531709?text=${encodeURIComponent("Olá Roberto, gostaria de conversar sobre a gestão de um empreendimento residencial / oportunidade profissional.")}`;
+  const whatsappUrl = `https://wa.me/5511996531709?text=${encodeURIComponent("Olá Roberto, vim pelo seu site profissional e gostaria de entrar em contato.")}`;
 
   return (
     <section
@@ -37,7 +37,7 @@ const Contact = () => {
           </h2>
 
           <p className="text-text-secondary text-base md:text-lg leading-relaxed">
-            Disponível para gestão executiva, coordenação e gerenciamento de obras prediais e empreendimentos residenciais de médio e grande porte.
+            Trajetória consolidada na gestão executiva, coordenação e gerenciamento de obras prediais e empreendimentos residenciais de médio e grande porte.
           </p>
         </motion.div>
 
@@ -114,7 +114,7 @@ const Contact = () => {
             </div>
 
             <div className="pt-5 border-t border-border/60 text-xs text-text-muted leading-relaxed">
-              Disponibilidade para viagens e atuação nacional.
+              Experiência consolidada e mobilidade para atuação em projetos de âmbito nacional.
             </div>
           </motion.div>
 

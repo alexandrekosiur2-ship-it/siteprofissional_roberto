@@ -6,7 +6,7 @@ const FloatingWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const whatsappNumber = "5511996531709";
-  const message = "Olá Engenheiro Roberto! Vim pelo seu site profissional e gostaria de consultar disponibilidade para um empreendimento.";
+  const message = "Olá Engenheiro Roberto! Vim pelo seu site profissional e gostaria de conversar.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
