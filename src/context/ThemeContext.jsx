@@ -80,16 +80,16 @@ export const PALETTES = [
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  // Ler preferência salva ou usar 'dark-obsidian' (Warm Obsidian) por padrão para PC e Mobile
+  // Ler preferência salva ou usar 'dark-steel' (Dark Steel Safety) por padrão
   const [currentThemeId, setCurrentThemeId] = useState(() => {
     const saved = localStorage.getItem('roberto_site_theme');
-    if (saved && PALETTES.some(p => p.id === saved)) {
+    if (saved === 'dark-steel' || saved === 'light-steel') {
       return saved;
     }
-    return 'dark-obsidian';
+    return 'dark-steel';
   });
 
-  const activePalette = PALETTES.find(p => p.id === currentThemeId) || PALETTES.find(p => p.id === 'dark-obsidian') || PALETTES[0];
+  const activePalette = PALETTES.find(p => p.id === currentThemeId) || PALETTES.find(p => p.id === 'dark-steel') || PALETTES[1];
   const isDarkMode = activePalette.mode === 'dark';
 
   useEffect(() => {
@@ -97,14 +97,14 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem('roberto_site_theme', currentThemeId);
   }, [currentThemeId]);
 
-  // Alternador Rápido Sol/Lua (☀️/🌙)
+  // Alternador Sol/Lua (☀️/🌙): Alterna entre Dark Steel Safety (Escuro) e Steel & Concrete (Claro)
   const toggleMode = () => {
     if (isDarkMode) {
-      // Mudar para o equivalente claro (light-clean)
-      setCurrentThemeId('light-clean');
+      // Mudar para o modo claro: Steel & Concrete
+      setCurrentThemeId('light-steel');
     } else {
-      // Mudar para o padrão Warm Obsidian
-      setCurrentThemeId('dark-obsidian');
+      // Mudar para o modo escuro principal: Dark Steel Safety
+      setCurrentThemeId('dark-steel');
     }
   };
 

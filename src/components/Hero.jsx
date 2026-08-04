@@ -117,7 +117,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.7 }}
           className="flex flex-wrap items-center justify-center gap-3 pt-6 text-xs sm:text-sm font-medium"
         >
-          {['Edificações Residenciais', 'Gestão de Contratos', 'Compatibilização de Projetos', '+15 Anos de Mercado'].map((item, i) => (
+          {['Edificações Residenciais', 'Gestão de Contratos', 'Compatibilização de Projetos', '+17 Anos de Mercado'].map((item, i) => (
             <span
               key={i}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 text-slate-300 shadow-sm backdrop-blur-sm"

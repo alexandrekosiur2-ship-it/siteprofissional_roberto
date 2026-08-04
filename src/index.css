@@ -7,21 +7,21 @@
    ========================================================================== */
 
 :root,
-[data-theme="dark-obsidian"] {
-  --color-bg: #121212;
-  --color-bg-alt: #1A1A1A;
-  --color-surface: #242424;
-  --color-surface-hover: #2E2E2E;
-  --color-border: rgba(245, 158, 11, 0.22);
-  --color-text-primary: #FDFBF7;
-  --color-text-secondary: #D4D4D4;
-  --color-text-muted: #A3A3A3;
-  --color-accent: #F59E0B;
-  --color-accent-hover: #D97706;
-  --color-accent-glow: rgba(245, 158, 11, 0.35);
-  --color-card-bg: rgba(36, 36, 36, 0.95);
-  --color-glass-bg: rgba(30, 30, 30, 0.85);
-  --color-glass-border: rgba(245, 158, 11, 0.18);
+[data-theme="dark-steel"] {
+  --color-bg: #0D1117;
+  --color-bg-alt: #161B22;
+  --color-surface: #21262D;
+  --color-surface-hover: #30363D;
+  --color-border: rgba(249, 115, 22, 0.2);
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #8B949E;
+  --color-accent: #F97316;
+  --color-accent-hover: #EA580C;
+  --color-accent-glow: rgba(249, 115, 22, 0.35);
+  --color-card-bg: rgba(22, 27, 34, 0.85);
+  --color-glass-bg: rgba(22, 27, 34, 0.75);
+  --color-glass-border: rgba(249, 115, 22, 0.15);
   --color-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 

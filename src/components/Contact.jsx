@@ -1,41 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, Phone, MapPin, CheckCircle, MessageSquare } from 'lucide-react';
+import { Phone, MapPin, ArrowUpRight, MessageSquare, Globe } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const text = `*Contato via Site Profissional*\n\n` +
-      `👤 *Nome:* ${formData.name}\n` +
-      `📱 *Telefone/WhatsApp:* ${formData.phone || 'Não informado'}\n` +
-      `📌 *Assunto:* ${formData.subject || 'Consulta de Empreendimento'}\n\n` +
-      `💬 *Mensagem:* ${formData.message}`;
-
-    const whatsappUrl = `https://wa.me/5511996531709?text=${encodeURIComponent(text)}`;
-
-    window.open(whatsappUrl, '_blank');
-    setSubmitted(true);
-  };
+  const whatsappUrl = `https://wa.me/5511996531709?text=${encodeURIComponent("Olá Roberto, gostaria de conversar sobre a gestão de um empreendimento residencial / oportunidade profissional.")}`;
 
   return (
     <section
       id="contato"
       className="py-section bg-bg-alt relative overflow-hidden transition-colors duration-400"
     >
-      {/* Grade suave de fundo */}
+      {/* Grade suave de fundo CAD */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-40" />
       
       {/* Glow de fundo de luz ambiente */}
@@ -43,170 +18,103 @@ const Contact = () => {
       <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-sky-500/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container-main relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        {/* Cabeçalho Institucional Executivo */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold tracking-[0.2em] uppercase font-display mb-4">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span>Contato Profissional</span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-text-primary mb-4">
+            Contato <span className="text-gradient">Direto</span>
+          </h2>
+
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed">
+            Disponível para gestão executiva, coordenação e gerenciamento de obras prediais e empreendimentos residenciais de médio e grande porte.
+          </p>
+        </motion.div>
+
+        {/* Grid de 2 Cards Executivos Minimalistas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           
-          {/* Lado Esquerdo - Chamada Executiva */}
+          {/* Card 1: WhatsApp Oficial */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 flex flex-col justify-between"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-col justify-between p-8 md:p-10 rounded-3xl bg-surface border border-emerald-500/30 hover:border-emerald-500/70 shadow-xl hover:shadow-emerald-500/10 transition-all duration-300 group"
           >
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-accent text-xs font-bold tracking-[0.2em] uppercase font-display">
-                  Contato Direto & Gerenciamento
+              <div className="flex items-center justify-between mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+                  <Phone className="w-7 h-7" />
+                </div>
+                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-500 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+                  <MessageSquare className="w-3.5 h-3.5" /> Canal Direto
                 </span>
               </div>
 
-              <h2 className="text-4xl font-display font-bold text-text-primary mb-4">
-                Vamos estruturar o seu <span className="text-gradient">próximo empreendimento?</span>
-              </h2>
-
-              <p className="text-text-secondary text-base leading-relaxed mb-8">
-                Entre em contato direto pelo WhatsApp para discutir novos projetos residenciais, consultoria de gerenciamento de obras ou compatibilização de projetos.
+              <h3 className="text-xl font-bold font-display text-text-primary mb-2">
+                WhatsApp Oficial
+              </h3>
+              <p className="text-xs md:text-sm text-text-secondary leading-relaxed mb-6">
+                Comunicação direta com o Engenheiro Roberto.
               </p>
+              <span className="text-2xl font-extrabold font-display text-text-primary block mb-8">
+                +55 (11) 99653-1709
+              </span>
             </div>
 
-            {/* Informações de Contato Direto */}
-            <div className="space-y-4">
-              <a 
-                href="https://wa.me/5511996531709" 
-                target="_blank" 
-                rel="noreferrer"
-                className="flex items-center gap-4 p-5 rounded-2xl bg-surface border border-emerald-500/30 hover:border-emerald-500 shadow-sm hover:shadow-md transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-xs text-emerald-500 font-semibold block uppercase tracking-wider">WhatsApp Oficial</span>
-                  <span className="text-text-primary font-bold text-base">+55 (11) 99653-1709</span>
-                </div>
-              </a>
-
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface border border-border shadow-sm">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs text-text-muted block">Base de Atuação</span>
-                  <span className="text-text-primary font-medium text-sm">São Paulo / Atuação Nacional</span>
-                </div>
-              </div>
-            </div>
-
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 w-full py-4 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-md hover:shadow-emerald-500/25 transition-all duration-300 group-hover:translate-y-[-2px]"
+            >
+              <span>Iniciar Conversa no WhatsApp</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
           </motion.div>
 
-          {/* Lado Direito - Formulário Conectado Exclusivamente ao WhatsApp */}
+          {/* Card 2: Base de Atuação */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-7"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col justify-between p-8 md:p-10 rounded-3xl bg-surface border border-border hover:border-accent/40 shadow-xl transition-all duration-300"
           >
-            <div className="bg-surface rounded-3xl p-8 md:p-10 border border-border shadow-xl relative overflow-hidden">
-
-              {submitted ? (
-                <div className="py-12 text-center flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-500 mb-4">
-                    <CheckCircle className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-display font-bold text-text-primary mb-2">
-                    Redirecionado para o WhatsApp!
-                  </h3>
-                  <p className="text-text-secondary text-sm max-w-md mb-6">
-                    Sua mensagem foi formatada e aberta na conversa direta com o Engenheiro Roberto.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="btn-ghost !py-2.5 !px-5 text-sm"
-                  >
-                    Enviar Nova Mensagem
-                  </button>
+            <div>
+              <div className="flex items-center justify-between mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent">
+                  <MapPin className="w-7 h-7" />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-2xl font-display font-bold text-text-primary">
-                      Falar no WhatsApp
-                    </h3>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 text-xs font-semibold">
-                      <MessageSquare className="w-3.5 h-3.5" /> Direto & Sem Intermediários
-                    </span>
-                  </div>
+                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-accent bg-accent/10 border border-accent/20 px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+                  <Globe className="w-3.5 h-3.5" /> Mobilidade
+                </span>
+              </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-xs font-medium text-text-secondary mb-2">
-                        Seu Nome *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Ex: Carlos Silva"
-                        className="w-full px-4 py-3 rounded-xl bg-bg border border-border text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-500 transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-xs font-medium text-text-secondary mb-2">
-                        Seu WhatsApp / Telefone *
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="(11) 99999-9999"
-                        className="w-full px-4 py-3 rounded-xl bg-bg border border-border text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-500 transition-colors"
-                      />
-                    </div>
-                  </div>
+              <h3 className="text-xl font-bold font-display text-text-primary mb-2">
+                Base de Atuação
+              </h3>
+              <p className="text-xs md:text-sm text-text-secondary leading-relaxed mb-6">
+                São Paulo / Atuação Nacional
+              </p>
+              <span className="text-xl font-bold font-display text-text-primary block mb-8">
+                São Paulo & Regiões Estratégicas
+              </span>
+            </div>
 
-                  <div>
-                    <label htmlFor="subject" className="block text-xs font-medium text-text-secondary mb-2">
-                      Assunto / Empreendimento
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Ex: Gestão de Obra Residencial / Consultoria"
-                      className="w-full px-4 py-3 rounded-xl bg-bg border border-border text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-500 transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-medium text-text-secondary mb-2">
-                      Sua Mensagem *
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Descreva a necessidade do seu empreendimento residencial..."
-                      className="w-full px-4 py-3 rounded-xl bg-bg border border-border text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:border-emerald-500 transition-colors resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn-primary w-full !py-4 text-base bg-emerald-600 hover:bg-emerald-500 hover:shadow-[0_0_25px_rgba(16,185,129,0.35)] text-white"
-                  >
-                    Iniciar Conversa no WhatsApp <Send className="w-4 h-4 ml-1" />
-                  </button>
-                </form>
-              )}
+            <div className="pt-5 border-t border-border/60 text-xs text-text-muted leading-relaxed">
+              Disponibilidade para viagens e atuação nacional.
             </div>
           </motion.div>
 
@@ -217,3 +125,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
+

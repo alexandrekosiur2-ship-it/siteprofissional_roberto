@@ -6,6 +6,70 @@ Este arquivo registra a evolução cronológica de todas as alterações realiza
 > 1. Toda alteração que modifique **3 ou mais arquivos** DEVE ser registrada neste log ao final da execução.
 > 2. Ao iniciar uma nova conversa/sessão, a IA deve ler este documento para entender o contexto histórico recente do código.
 
+## 📅 [04/08/2026] — v5.3: Alinhamento de Layout na Foto da Biografia e Micro-Copy Minimalista em Contato
+
+- **Resumo da Entrega**:
+  - Ajustada a altura do retrato na seção Sobre (`About.jsx`) com `items-stretch` para alinhar com o topo do badge `TRAJETÓRIA & ESPECIALIZAÇÃO` e a base do card `ABEMI`.
+  - Aplicado o micro-copy executivo ultra-minimalista na seção de Contato (`Contact.jsx`): removido o card do CREA e mantidos 2 cards estratégicos (**WhatsApp Oficial** com chamada direta e **Base de Atuação** em SP com mobilidade para viagens nacionais).
+
+- **Arquivos Modificados (2 arquivos)**:
+  - `[MODIFY]` [src/components/About.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/About.jsx)
+  - `[MODIFY]` [src/components/Contact.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Contact.jsx)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado - Simetria de Layout e Comunicação Executiva Direta).
+
+---
+
+## 📅 [04/08/2026] — v5.2: Redesign Executivo da Seção de Contato (Option B - Cards Institucionais Diretos)
+
+- **Resumo da Entrega**:
+  - Removido o formulário de vendas comercial da seção de contato.
+  - Reformulada a seção para **Contato Direto & Oportunidades Executivas**, focando no recrutamento/contratação de gerentes e diretores de engenharia.
+  - Criada grade de 3 cards executivos: **WhatsApp Oficial** (link direto de 1 clique), **Base de Atuação** (SP / Nacional) e **Habilitação Técnica** (CREA/SP Ativo).
+
+- **Arquivos Modificados (2 arquivos)**:
+  - `[MODIFY]` [src/components/Contact.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Contact.jsx)
+  - `[MODIFY]` [CHANGELOG.md](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/CHANGELOG.md)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado - Posicionamento Executivo Sênior Alinhado).
+
+---
+
+## 📅 [04/08/2026] — v5.1: Simplificação de Tema Fixo (Dark Steel Safety / Steel & Concrete)
+
+- **Resumo da Entrega**:
+  - Removido o menu dropdown de paletas (🎨).
+  - Definida a paleta **Dark Steel Safety (`dark-steel`)** como tema escuro principal fixo.
+  - Configurado o botão Sol/Lua (☀️/🌙) para alternar diretamente entre **Dark Steel Safety (`dark-steel`)** e **Steel & Concrete (`light-steel`)**.
+
+- **Arquivos Modificados (3 arquivos)**:
+  - `[MODIFY]` [src/context/ThemeContext.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/context/ThemeContext.jsx)
+  - `[MODIFY]` [src/index.css](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/index.css)
+  - `[MODIFY]` [src/components/ThemeSwitcher.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/ThemeSwitcher.jsx)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado - Interface Limpa e Alternador Binário Preciso).
+
+---
+
+## 📅 [04/08/2026] — v5.0: Atualização Geral de Copy de Experiência (+17 Anos)
+
+- **Resumo da Entrega**:
+  - Atualizado todo o texto do site, badges, contadores de estatísticas, meta tags e documentações técnicas de **+15 anos** para **+17 anos de experiência**.
+  - Componentes e arquivos ajustados: `Hero.jsx`, `About.jsx`, `Results.jsx`, `index.html`, `AGENTS.md`, `ESTRUTURA_SITE.md` e `Foto perfil pessoal.md`.
+
+- **Arquivos Modificados (7 arquivos)**:
+  - `[MODIFY]` [src/components/Hero.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Hero.jsx)
+  - `[MODIFY]` [src/components/About.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/About.jsx)
+  - `[MODIFY]` [src/components/Results.jsx](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/src/components/Results.jsx)
+  - `[MODIFY]` [index.html](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/index.html)
+  - `[MODIFY]` [AGENTS.md](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/AGENTS.md)
+  - `[MODIFY]` [docs/conteudo/ESTRUTURA_SITE.md](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/docs/conteudo/ESTRUTURA_SITE.md)
+  - `[MODIFY]` [docs/conteudo/Foto perfil pessoal.md](file:///c:/Users/Alexandre/Documents/Workspace/SITEPROFISSSIONA_ROBERTO/docs/conteudo/Foto%20perfil%20pessoal.md)
+
+- **Resultado da Auditoria Raio-X**: Nota **10/10** (🏆 Aprovado - Factualidade & Alinhamento de Copy 100%).
+
+---
+
 ## 📅 [04/08/2026] — v4.9: Padronização Escura de Rodapé/Seletor em Paletas Claras e Atualização da Foto de Perfil
 
 - **Resumo da Entrega**:

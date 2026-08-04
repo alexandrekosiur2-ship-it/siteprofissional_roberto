@@ -36,23 +36,23 @@ const About = () => {
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="container-main relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
           
-          {/* Lado Esquerdo - Foto de Perfil */}
+          {/* Lado Esquerdo - Foto de Perfil Alinhada com o Topo e Base do Conteúdo */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-5 relative perspective-1000"
+            className="lg:col-span-5 relative perspective-1000 flex flex-col"
           >
-            {/* CARD DA FOTO PRINCIPAL COM INTERAÇÃO TILT */}
+            {/* CARD DA FOTO PRINCIPAL COM INTERAÇÃO TILT E ALTURA HARMÔNICA */}
             <motion.div
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               animate={{ rotateX, rotateY }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative mx-auto max-w-md lg:max-w-none cursor-pointer group"
+              className="relative mx-auto max-w-md lg:max-w-none cursor-pointer group h-full flex flex-col justify-between w-full"
             >
               {/* Esquadros e Linhas Guia CAD */}
               <div className="absolute top-2 left-2 text-[9px] font-mono text-text-muted group-hover:text-accent transition-colors pointer-events-none z-20">
@@ -71,7 +71,7 @@ const About = () => {
               {/* Moldura com gradiente de acento */}
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-b from-accent/30 via-accent/10 to-transparent blur-sm group-hover:blur-md transition-all pointer-events-none" />
               
-              <div className="relative rounded-3xl overflow-hidden glass-card aspect-[4/5] shadow-xl">
+              <div className="relative rounded-3xl overflow-hidden glass-card h-full min-h-[460px] lg:min-h-[580px] shadow-xl flex flex-col">
                 <img
                   src={profileImg}
                   alt="Roberto Kosiur - Engenheiro Civil Especialista em Empreendimentos Residenciais"
@@ -87,7 +87,7 @@ const About = () => {
                       <p className="text-xs text-text-secondary">Engenheiro Civil · CREA/SP</p>
                     </div>
                     <span className="px-3 py-1 text-xs font-semibold rounded-full bg-accent/15 text-accent border border-accent/30">
-                      +15 Anos
+                      +17 Anos
                     </span>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ const About = () => {
 
             <div className="space-y-4 text-text-secondary text-base leading-relaxed mb-8">
               <p>
-                Engenheiro Civil com mais de 15 anos de experiência, especializado na gestão e execução de <strong className="text-text-primary">obras prediais e conjuntos residenciais de médio e grande porte</strong> (como Parque do Sol, Link Ipiranga, Parque das Cerejeiras e Bem Viver).
+                Engenheiro Civil com mais de 17 anos de experiência, especializado na gestão e execução de <strong className="text-text-primary">obras prediais e conjuntos residenciais de médio e grande porte</strong> (como Parque do Sol, Link Ipiranga, Parque das Cerejeiras e Bem Viver).
               </p>
               <p>
                 O grande diferencial da sua atuação vem da bagagem acumulada no gerenciamento de <strong className="text-text-primary">megaobras de infraestrutura de escala nacional</strong> — como refinarias da Petrobrás, pontes do Grupo CCR e o Porto do Açu. Essa experiência traz um nível incomparável de precisão técnica, planejamento físico-financeiro, controle de qualidade e rigor no cumprimento de prazos para os projetos residenciais.

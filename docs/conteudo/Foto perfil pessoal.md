@@ -1,5 +1,5 @@
 Foto perfil pessoal  
-Roberto Kosiur de Carvalho Alves é Engenheiro Civil com mais de 15 anos de experiência em projetos e  
+Roberto Kosiur de Carvalho Alves é Engenheiro Civil com mais de 17 anos de experiência em projetos e  
 gestão de obras de engenharia. Ao longo de sua carreira, atuou em empreendimentos de grande porte  
 nos segmentos de edificações, infraestrutura, refinarias, pontes e viadutos (OAE), liderando equipes  
 multidisciplinares e garantindo a execução dos projetos com qualidade, segurança e eficiência.  

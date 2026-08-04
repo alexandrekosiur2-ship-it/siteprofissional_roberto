@@ -30,7 +30,7 @@ const AnimatedCounter = ({ target, duration = 2 }) => {
 
 const Results = () => {
   const stats = [
-    { value: 15, suffix: "+", label: "Anos de Experiência em Engenharia" },
+    { value: 17, suffix: "+", label: "Anos de Experiência em Engenharia" },
     { value: 5, suffix: "", label: "Setores de Infraestrutura Pesada" },
     { value: 100, suffix: "%", label: "Rigores de Segurança & SMS" },
     { value: 10, suffix: "+", label: "Grandes Empreendimentos Gerenciados" }

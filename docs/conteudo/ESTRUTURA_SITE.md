@@ -4,7 +4,7 @@ Este documento define o conteúdo e o foco do projeto **Portfólio Profissional*
 
 ## 1. Identidade e Tom de Voz
 - **Profissional:** Engenheiro Civil Roberto Kosiur de Carvalho Alves.
-- **Foco Principal:** Gestão executiva de obras prediais e empreendimentos residenciais de médio e grande porte (+15 anos de experiência).
+- **Foco Principal:** Gestão executiva de obras prediais e empreendimentos residenciais de médio e grande porte (+17 anos de experiência).
 - **Canal Único de Contato:** WhatsApp (+55 11 99653-1709).
 - **Tom de Voz:** Autoridade técnica, sofisticação, inteligência construtiva e segurança no cumprimento de prazos.
 
